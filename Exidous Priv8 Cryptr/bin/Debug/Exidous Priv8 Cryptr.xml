@@ -1,0 +1,51 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Exidous Priv8 Cryptr
+</name>
+</assembly>
+<members>
+<member name="T:Exidous_Priv8_Cryptr.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.BndrStub">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.DigitalCert">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.DwnldrStub">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.Exidous_AV_Checker">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Exidous_Priv8_Cryptr.My.Resources.Resources.ShortCut_Exploit">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+</members>
+</doc>

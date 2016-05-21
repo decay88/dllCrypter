@@ -1,0 +1,20 @@
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\bin\Debug\BndrStub.exe.config
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\bin\Debug\BndrStub.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\bin\Debug\BndrStub.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\bin\Debug\BndrStub.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\obj\Debug\BndrStub.Form1.resources
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\obj\Debug\BndrStub.Resources.resources
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\obj\Debug\BndrStub.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\obj\Debug\BndrStub.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\obj\Debug\BndrStub.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\BndrStub\obj\Debug\BndrStub.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\bin\Debug\BndrStub.exe.config
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\bin\Debug\BndrStub.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\bin\Debug\BndrStub.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\bin\Debug\BndrStub.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.Form1.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.pdb

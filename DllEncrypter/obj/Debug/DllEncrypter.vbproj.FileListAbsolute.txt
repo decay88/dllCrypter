@@ -1,0 +1,30 @@
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\bin\Debug\DllEncrypter.exe.config
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\bin\Debug\DllEncrypter.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\bin\Debug\DllEncrypter.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\bin\Debug\DllEncrypter.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\obj\Debug\DllEncrypter.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\obj\Debug\DllEncrypter.Resources.resources
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\obj\Debug\DllEncrypter.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\obj\Debug\DllEncrypter.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\obj\Debug\DllEncrypter.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\TestingApp\DllEncrypter\obj\Debug\DllEncrypter.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\bin\Debug\DllEncrypter.exe.config
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\bin\Debug\DllEncrypter.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\bin\Debug\DllEncrypter.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\bin\Debug\DllEncrypter.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\obj\Debug\DllEncrypter.Resources.resources
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\obj\Debug\DllEncrypter.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\obj\Debug\DllEncrypter.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\obj\Debug\DllEncrypter.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\obj\Debug\DllEncrypter.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\DllEncrypter\obj\Debug\DllEncrypter.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\bin\Debug\DllEncrypter.exe.config
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\bin\Debug\DllEncrypter.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\bin\Debug\DllEncrypter.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\bin\Debug\DllEncrypter.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\obj\Debug\DllEncrypter.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\obj\Debug\DllEncrypter.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\obj\Debug\DllEncrypter.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\obj\Debug\DllEncrypter.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\obj\Debug\DllEncrypter.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\DllEncrypter\obj\Debug\DllEncrypter.pdb
