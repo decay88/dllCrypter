@@ -91,8 +91,6 @@ Partial Class Form1
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Checked = True
-        Me.CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox1.Location = New System.Drawing.Point(87, 66)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(138, 17)
@@ -103,8 +101,6 @@ Partial Class Form1
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Checked = True
-        Me.CheckBox2.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox2.Location = New System.Drawing.Point(251, 66)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(103, 17)
@@ -189,8 +185,6 @@ Partial Class Form1
         'CheckBox5
         '
         Me.CheckBox5.AutoSize = True
-        Me.CheckBox5.Checked = True
-        Me.CheckBox5.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox5.Location = New System.Drawing.Point(313, 95)
         Me.CheckBox5.Name = "CheckBox5"
         Me.CheckBox5.Size = New System.Drawing.Size(103, 17)
@@ -201,8 +195,6 @@ Partial Class Form1
         'CheckBox4
         '
         Me.CheckBox4.AutoSize = True
-        Me.CheckBox4.Checked = True
-        Me.CheckBox4.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox4.Location = New System.Drawing.Point(200, 94)
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(98, 17)
@@ -223,7 +215,7 @@ Partial Class Form1
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"%TEMP%", "%ALLUSERSPROFILE%", "%APPDATA%", "%CommonProgramFiles%", "%HOMEPATH%", "%LOCALAPPDATA%", "%ProgramData%", "%PROGRAMFILES%", "%ProgramFiles(x86)%", "%Public%", "%SYSTEMDRIVE%", "%SYSTEMROOT%", "%USERPROFILE%", "%WINDIR%"})
+        Me.ComboBox1.Items.AddRange(New Object() {"%TEMP%", "%APPPATH%", "%ALLUSERSPROFILE%", "%APPDATA%", "%CommonProgramFiles%", "%HOMEPATH%", "%LOCALAPPDATA%", "%ProgramData%", "%PROGRAMFILES%", "%ProgramFiles(x86)%", "%Public%", "%SYSTEMDRIVE%", "%SYSTEMROOT%", "%USERPROFILE%", "%WINDIR%"})
         Me.ComboBox1.Location = New System.Drawing.Point(67, 92)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
@@ -274,8 +266,6 @@ Partial Class Form1
         'CheckBox6
         '
         Me.CheckBox6.AutoSize = True
-        Me.CheckBox6.Checked = True
-        Me.CheckBox6.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox6.Location = New System.Drawing.Point(138, 53)
         Me.CheckBox6.Name = "CheckBox6"
         Me.CheckBox6.Size = New System.Drawing.Size(103, 17)
@@ -286,8 +276,6 @@ Partial Class Form1
         'CheckBox3
         '
         Me.CheckBox3.AutoSize = True
-        Me.CheckBox3.Checked = True
-        Me.CheckBox3.CheckState = System.Windows.Forms.CheckState.Checked
         Me.CheckBox3.Location = New System.Drawing.Point(20, 53)
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(98, 17)

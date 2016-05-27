@@ -139,9 +139,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Lock.ico" />
+    <None Include="Resources\BndrStub.exe" />
     <None Include="Resources\ShortCut Exploit.exe" />
     <None Include="Resources\Exidous AV Checker.exe" />
-    <None Include="Resources\BndrStub.exe" />
     <None Include="Resources\DwnldrStub.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

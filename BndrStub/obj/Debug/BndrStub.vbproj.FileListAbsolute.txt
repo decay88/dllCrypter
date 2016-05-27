@@ -18,3 +18,4 @@ C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.vbproj.Gene
 C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\BndrStub\obj\Debug\BndrStub.vbprojResolveAssemblyReference.cache

