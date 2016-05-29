@@ -3,7 +3,9 @@
         Console.WriteLine("Drag/Drop dll")
         Dim Dll As String = Console.ReadLine
         Dll = Replace(Dll, """", "")
-        Dim Path As String = Strings.Left(Dll, Dll.LastIndexOf("\") + 1) & "Enc\dll.dll"
+        Dim Path As String = Strings.Left(Dll, Dll.LastIndexOf("\") + 1)
+        Dim Name As String = Replace(Dll, Path, "")
+        Path = Path & "Enc\" & Name
         FileIO.FileSystem.WriteAllBytes(Path, AES_Encrypt(FileIO.FileSystem.ReadAllBytes(Dll)), False)
     End Sub
     Function AES_Encrypt(ByVal input() As Byte) As Byte()
