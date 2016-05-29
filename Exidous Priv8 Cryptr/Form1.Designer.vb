@@ -65,6 +65,8 @@ Partial Class Form1
         '
         'TextBox1
         '
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Location = New System.Drawing.Point(87, 13)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(341, 20)
@@ -72,6 +74,7 @@ Partial Class Form1
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Location = New System.Drawing.Point(434, 13)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(44, 20)
@@ -81,6 +84,7 @@ Partial Class Form1
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.Location = New System.Drawing.Point(403, 62)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 23)
@@ -113,10 +117,11 @@ Partial Class Form1
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(3, 3)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(491, 144)
+        Me.TabControl1.Size = New System.Drawing.Size(497, 147)
         Me.TabControl1.TabIndex = 6
         '
         'TabPage1
@@ -133,13 +138,15 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 22)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(483, 118)
+        Me.TabPage1.Size = New System.Drawing.Size(489, 121)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Crypter"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Button8
         '
+        Me.Button8.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button8.Location = New System.Drawing.Point(304, 89)
         Me.Button8.Name = "Button8"
         Me.Button8.Size = New System.Drawing.Size(113, 23)
@@ -149,6 +156,9 @@ Partial Class Form1
         '
         'Button7
         '
+        Me.Button7.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button7.Location = New System.Drawing.Point(185, 89)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(113, 23)
@@ -158,6 +168,8 @@ Partial Class Form1
         '
         'Button6
         '
+        Me.Button6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Button6.Location = New System.Drawing.Point(66, 89)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(113, 23)
@@ -177,13 +189,14 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(483, 118)
+        Me.TabPage2.Size = New System.Drawing.Size(489, 121)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Binder"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'CheckBox5
         '
+        Me.CheckBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBox5.AutoSize = True
         Me.CheckBox5.Location = New System.Drawing.Point(313, 95)
         Me.CheckBox5.Name = "CheckBox5"
@@ -194,6 +207,7 @@ Partial Class Form1
         '
         'CheckBox4
         '
+        Me.CheckBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.CheckBox4.AutoSize = True
         Me.CheckBox4.Location = New System.Drawing.Point(200, 94)
         Me.CheckBox4.Name = "CheckBox4"
@@ -204,6 +218,9 @@ Partial Class Form1
         '
         'ListView1
         '
+        Me.ListView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.GridLines = True
         Me.ListView1.Location = New System.Drawing.Point(3, 3)
         Me.ListView1.Name = "ListView1"
@@ -214,6 +231,7 @@ Partial Class Form1
         '
         'ComboBox1
         '
+        Me.ComboBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"%TEMP%", "%APPPATH%", "%ALLUSERSPROFILE%", "%APPDATA%", "%CommonProgramFiles%", "%HOMEPATH%", "%LOCALAPPDATA%", "%ProgramData%", "%PROGRAMFILES%", "%ProgramFiles(x86)%", "%Public%", "%SYSTEMDRIVE%", "%SYSTEMROOT%", "%USERPROFILE%", "%WINDIR%"})
         Me.ComboBox1.Location = New System.Drawing.Point(67, 92)
@@ -224,6 +242,7 @@ Partial Class Form1
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(6, 96)
         Me.Label2.Name = "Label2"
@@ -233,6 +252,8 @@ Partial Class Form1
         '
         'Button4
         '
+        Me.Button4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button4.Location = New System.Drawing.Point(422, 92)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(55, 20)
@@ -242,6 +263,8 @@ Partial Class Form1
         '
         'Button3
         '
+        Me.Button3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.Location = New System.Drawing.Point(422, 3)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(55, 20)
@@ -258,7 +281,7 @@ Partial Class Form1
         Me.TabPage3.Controls.Add(Me.Label3)
         Me.TabPage3.Location = New System.Drawing.Point(4, 22)
         Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Size = New System.Drawing.Size(483, 118)
+        Me.TabPage3.Size = New System.Drawing.Size(489, 121)
         Me.TabPage3.TabIndex = 2
         Me.TabPage3.Text = "Downloader"
         Me.TabPage3.UseVisualStyleBackColor = True
@@ -285,6 +308,9 @@ Partial Class Form1
         '
         'Button5
         '
+        Me.Button5.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button5.Location = New System.Drawing.Point(196, 87)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(75, 23)
@@ -294,6 +320,8 @@ Partial Class Form1
         '
         'TextBox2
         '
+        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox2.Location = New System.Drawing.Point(107, 8)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(371, 20)

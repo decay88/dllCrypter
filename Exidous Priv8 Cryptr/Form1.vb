@@ -66,6 +66,11 @@ Public Class Form1
                 TestDialog.Dispose()
             End If
 
+            If IsNetApp(TextBox1.Text) Then
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
+            End If
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
 
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, AES_Encrypt(FileIO.FileSystem.ReadAllBytes(TextBox1.Text)), True)
@@ -88,6 +93,16 @@ Public Class Form1
         End If
 
     End Sub
+
+    Function IsNetApp(ByRef TheFile As String)
+        Dim Result As String
+        Try
+            Result = System.Reflection.AssemblyName.GetAssemblyName(TextBox1.Text).ToString
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
 
     Public Function ReadEOFData(ByRef FilePath As String) As Byte()
         Dim Bin() As Byte = FileIO.FileSystem.ReadAllBytes(FilePath)

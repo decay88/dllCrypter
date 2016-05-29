@@ -125,9 +125,19 @@
       <Project>{a04d6e8d-a123-4d94-80fc-71251a841a5e}</Project>
       <Name>dll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RunPE\RunPE.csproj">
+      <Project>{91ecd3f5-e676-4447-bd5f-43f22bba00ab}</Project>
+      <Name>RunPE</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="dll.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invoke.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="RunPE.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

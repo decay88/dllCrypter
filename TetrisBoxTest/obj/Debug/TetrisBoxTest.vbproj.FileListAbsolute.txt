@@ -25,3 +25,6 @@ C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\obj\Debug\TetrisBoxTest.v
 C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\obj\Debug\TetrisBoxTest.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\obj\Debug\TetrisBoxTest.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\obj\Debug\TetrisBoxTest.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\obj\Debug\TetrisBoxTest.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\bin\Debug\RunPE.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\bin\Debug\RunPE.pdb
