@@ -226,7 +226,7 @@ Class Stuff
                 End
             End If
         End If
-        If Payload(Start - 9) = &H54 Then
+        If Payload(Start - 10) = &H54 Then
             'net
         Else
             'native
@@ -245,7 +245,7 @@ Class Stuff
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
 
-        If Payload(Start - 9) = &H54 Then
+        If Payload(Start - 10) = &H54 Then
             Dim f As New dll.Class1
             f.Main(Application.ExecutablePath)
         Else

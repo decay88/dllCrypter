@@ -23,3 +23,4 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.Resources.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.vbproj.GenerateResource.Cache
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.frmTOS.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.vbprojResolveAssemblyReference.cache

