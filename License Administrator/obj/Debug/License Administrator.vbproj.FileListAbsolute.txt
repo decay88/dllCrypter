@@ -1,0 +1,11 @@
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\bin\Debug\License Administrator.exe.config
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\bin\Debug\License Administrator.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\bin\Debug\License Administrator.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\bin\Debug\License Administrator.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License_Administrator.Form1.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License_Administrator.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.vbprojResolveAssemblyReference.cache

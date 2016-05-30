@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{83AD2DC6-76E3-4C7D-97C0-2990A4C4106E}</ProjectGuid>
+    <ProjectGuid>{261DF2FD-2072-4F6B-A726-C0B3826A5F45}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Exidous_Priv8_Cryptr.My.MyApplication</StartupObject>
-    <RootNamespace>Exidous_Priv8_Cryptr</RootNamespace>
-    <AssemblyName>Exidous Priv8 Cryptr</AssemblyName>
+    <StartupObject>License_Administrator.My.MyApplication</StartupObject>
+    <RootNamespace>License_Administrator</RootNamespace>
+    <AssemblyName>License Administrator</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -22,9 +21,8 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Exidous Priv8 Cryptr.xml</DocumentationFile>
+    <DocumentationFile>License Administrator.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,9 +31,8 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Exidous Priv8 Cryptr.xml</DocumentationFile>
+    <DocumentationFile>License Administrator.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -48,9 +45,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Lock.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -78,7 +72,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicDllInvoke.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -86,20 +79,6 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmClone.designer.vb">
-      <DependentUpon>FrmClone.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FrmClone.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTOS.Designer.vb">
-      <DependentUpon>frmTOS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmTOS.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IconTools.vb" />
-    <Compile Include="Miharbi Icon Changer.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -120,12 +99,6 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmClone.resx">
-      <DependentUpon>FrmClone.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTOS.resx">
-      <DependentUpon>frmTOS.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -144,14 +117,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="Resources\DigitalCert.cert" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Lock.ico" />
-    <None Include="Resources\BndrStub.exe" />
-    <None Include="Resources\ShortCut Exploit.exe" />
-    <None Include="Resources\Exidous AV Checker.exe" />
-    <None Include="Resources\DwnldrStub.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
