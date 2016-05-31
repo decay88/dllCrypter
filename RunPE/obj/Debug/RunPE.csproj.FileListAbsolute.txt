@@ -1,5 +1,4 @@
 C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\bin\Debug\RunPE.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\bin\Debug\RunPE.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\obj\Debug\RunPE.csprojResolveAssemblyReference.cache
 C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\obj\Debug\RunPE.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\obj\Debug\RunPE.pdb

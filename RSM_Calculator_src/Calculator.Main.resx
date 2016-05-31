@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -112,9 +112,32 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAIAICAQAAAAAADoAgAAJgAAABAQEAAAAAAAKAEAAA4DAAAoAAAAIAAAAEAAAAABAAQAAAAAAIAC
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAAAACAAIAAgIAAAICAgADAwMAAAAD/AAD/
+        AAAA//8A/wAAAP8A/wD//wAA////AHdw////////8AcP///////3dw////////B4cP///////3dw////
+        //8HiHcP///////3cA/////weId3cP///////wBw////B4h/93cP//////8Hhw//8HiH//93cP/////w
+        eIdw/weIf///93cP////B4h3dwAIh/////93cP//8HiH/3dwCH//AP//93AP/weIf//3dwf//w8P//8A
+        cP94h////3dw/w8P////B4cPiH/w///3dw/wD///8HiHcIf/D////3cA/////weId3d/8PDw///wBw//
+        //B4h/93D/D/D///8Hhw//8HiH//93D/AP///weIdw/weIf///9wD/////B4h3dwAIh/8P//AHD///8H
+        iH/3dwCH//D//weHD//weIf//3dwf/AAAP94h3D/B4h////3dw//8P//iHd3AAiH//D//3dw//D//4f/
+        d3AIf/D/D//3cA////9///d3B/8PDw///wBw////////d3D/D/D///8Hhw//8P////d3D/D////weIdw
+        /wfwD///dwD/////B4h3dwAIDw////AHD///8HiH/3dwCP8AD//weHD//weIf//3dwD//w//B4h3D/B4
+        h/8P/3dw//D/8HiHd3AAiH/w8P/3d//w/weIf/d3AIf/D/D//3f///B4h///d3B/8P/w///3AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAoAAAAEAAAACAAAAABAAQAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgAAAAICAAIAA
+        AACAAIAAgIAAAICAgADAwMAAAAD/AAD/AAAA//8A/wAAAP8A/wD//wAA////AHD////wD///9w///whw
+        ////AP/wh/cP//94Dwh//3D/949wB/D/9w94//cPAP/wgI8P/3D//wh3D/D/9w/wh/9w//94cAh//wgP
+        94/3B/APh3B4//9w//9/9w8AD/AP////cP//94DwAP/wD/949wD/Dwhw948PcP/wh/cI8P/3AAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+</value>
+  </data>
 </root>

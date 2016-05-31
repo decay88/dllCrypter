@@ -35,10 +35,10 @@ Class Stuff
     End Function
 
     Shared Sub Ant()
-        Dim L = New anti.Antis
+        Dim L = New anti.IntegrityCheck
         L.AppExePath = Application.ExecutablePath
         L.AppPath = Application.StartupPath
-        L.RunAntis()
+        L.RunCheck()
     End Sub
 
     Shared Sub Test()

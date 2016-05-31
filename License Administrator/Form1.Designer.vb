@@ -214,7 +214,7 @@ Partial Class Form1
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(335, 20)
         Me.TextBox5.TabIndex = 12
-        Me.TextBox5.Text = "http://localhost/Crypter/process.php"
+        Me.TextBox5.Text = "http://intellisence.ddns.net/Crypter/process.php"
         '
         'TextBox6
         '
