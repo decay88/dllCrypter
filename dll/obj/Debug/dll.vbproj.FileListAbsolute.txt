@@ -18,7 +18,6 @@ C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\dll\
 C:\Users\Exidous\Source\Repos\dllCrypter\dll\bin\Debug\dll.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\dll\bin\Debug\dll.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\dll\bin\Debug\dll.xml
-C:\Users\Exidous\Source\Repos\dllCrypter\dll\obj\Debug\dll.vbprojResolveAssemblyReference.cache
 C:\Users\Exidous\Source\Repos\dllCrypter\dll\obj\Debug\dll.Resources.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\dll\obj\Debug\dll.vbproj.GenerateResource.Cache
 C:\Users\Exidous\Source\Repos\dllCrypter\dll\obj\Debug\dll.dll

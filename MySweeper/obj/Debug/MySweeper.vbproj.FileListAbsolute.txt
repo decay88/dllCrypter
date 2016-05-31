@@ -14,3 +14,6 @@ C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\dll.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\dll.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\RunPE.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MineSweeper.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\anti.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\anti.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\anti.xml

