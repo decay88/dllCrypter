@@ -376,6 +376,12 @@ Public Class Form1
                 FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
             End If
 
+            If AngelCheckBox10.Checked = True Then
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+            Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
+            End If
+
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
 
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, Compress(AES_Encrypt(FileIO.FileSystem.ReadAllBytes(AngelTextBox1.Text))), True)
@@ -561,6 +567,12 @@ Public Class Form1
             AngelCheckBox8.Enabled = True
         End If
     End Sub
+
+    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
+
+    End Sub
+
+
 End Class
 
 Class HWID
