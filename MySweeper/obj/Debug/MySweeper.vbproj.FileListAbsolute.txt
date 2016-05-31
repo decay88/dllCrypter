@@ -1,0 +1,16 @@
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\MySweeper.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\MySweeper.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\MySweeper.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MySweeper.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MineSweeper.dlgAskSize.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MineSweeper.GameFrm.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MySweeper.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MySweeper.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MySweeper.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MySweeper.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\dll.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\RunPE.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\dll.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\dll.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\bin\RunPE.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\MySweeper\obj\Debug\MineSweeper.Resources.resources

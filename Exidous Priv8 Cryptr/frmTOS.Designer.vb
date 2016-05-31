@@ -94,6 +94,7 @@ Partial Class frmTOS
         Me.MinimizeBox = False
         Me.Name = "frmTOS"
         Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Exidous Priv8 Crypter Agreement"
         Me.TopMost = True
         Me.ResumeLayout(False)

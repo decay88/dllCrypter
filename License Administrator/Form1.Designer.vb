@@ -222,6 +222,7 @@ Partial Class Form1
         Me.TextBox6.Name = "TextBox6"
         Me.TextBox6.Size = New System.Drawing.Size(335, 20)
         Me.TextBox6.TabIndex = 17
+        Me.TextBox6.Text = "BSN12345678901234567BFEBFBFF000306A9"
         '
         'Label6
         '

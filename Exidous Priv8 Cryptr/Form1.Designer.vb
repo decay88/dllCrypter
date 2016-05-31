@@ -27,6 +27,7 @@ Partial Class Form1
         Me.AngelControlBox1 = New Exidous_Priv8_Cryptr.AngelControlBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.AngelCheckBox8 = New Exidous_Priv8_Cryptr.AngelCheckBox()
         Me.AngelButton5 = New Exidous_Priv8_Cryptr.AngelButton()
         Me.AngelButton4 = New Exidous_Priv8_Cryptr.AngelButton()
         Me.AngelButton3 = New Exidous_Priv8_Cryptr.AngelButton()
@@ -105,6 +106,7 @@ Partial Class Form1
         'TabPage1
         '
         Me.TabPage1.BackColor = System.Drawing.Color.Black
+        Me.TabPage1.Controls.Add(Me.AngelCheckBox8)
         Me.TabPage1.Controls.Add(Me.AngelButton5)
         Me.TabPage1.Controls.Add(Me.AngelButton4)
         Me.TabPage1.Controls.Add(Me.AngelButton3)
@@ -121,6 +123,16 @@ Partial Class Form1
         Me.TabPage1.Size = New System.Drawing.Size(643, 170)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Crypter"
+        '
+        'AngelCheckBox8
+        '
+        Me.AngelCheckBox8.Checked = True
+        Me.AngelCheckBox8.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.AngelCheckBox8.Location = New System.Drawing.Point(502, 78)
+        Me.AngelCheckBox8.Name = "AngelCheckBox8"
+        Me.AngelCheckBox8.Size = New System.Drawing.Size(123, 18)
+        Me.AngelCheckBox8.TabIndex = 19
+        Me.AngelCheckBox8.Text = "Melt/Destry Self"
         '
         'AngelButton5
         '
@@ -166,7 +178,7 @@ Partial Class Form1
         '
         Me.AngelCheckBox7.Checked = True
         Me.AngelCheckBox7.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.AngelCheckBox7.Location = New System.Drawing.Point(402, 76)
+        Me.AngelCheckBox7.Location = New System.Drawing.Point(351, 78)
         Me.AngelCheckBox7.Name = "AngelCheckBox7"
         Me.AngelCheckBox7.Size = New System.Drawing.Size(135, 18)
         Me.AngelCheckBox7.TabIndex = 14
@@ -176,7 +188,7 @@ Partial Class Form1
         '
         Me.AngelCheckBox2.Checked = False
         Me.AngelCheckBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.AngelCheckBox2.Location = New System.Drawing.Point(252, 76)
+        Me.AngelCheckBox2.Location = New System.Drawing.Point(201, 78)
         Me.AngelCheckBox2.Name = "AngelCheckBox2"
         Me.AngelCheckBox2.Size = New System.Drawing.Size(126, 18)
         Me.AngelCheckBox2.TabIndex = 13
@@ -186,7 +198,7 @@ Partial Class Form1
         '
         Me.AngelCheckBox1.Checked = False
         Me.AngelCheckBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.AngelCheckBox1.Location = New System.Drawing.Point(63, 76)
+        Me.AngelCheckBox1.Location = New System.Drawing.Point(12, 78)
         Me.AngelCheckBox1.Name = "AngelCheckBox1"
         Me.AngelCheckBox1.Size = New System.Drawing.Size(166, 18)
         Me.AngelCheckBox1.TabIndex = 12
@@ -554,4 +566,5 @@ Partial Class Form1
     Friend WithEvents AngelButton8 As AngelButton
     Friend WithEvents AngelCheckBox6 As AngelCheckBox
     Friend WithEvents AngelCheckBox3 As AngelCheckBox
+    Friend WithEvents AngelCheckBox8 As AngelCheckBox
 End Class

@@ -8,3 +8,4 @@ C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License
 C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\License Administrator\obj\Debug\License Administrator.vbprojResolveAssemblyReference.cache
