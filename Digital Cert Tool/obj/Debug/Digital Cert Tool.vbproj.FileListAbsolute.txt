@@ -1,0 +1,12 @@
+C:\Users\Exidous\AppData\Local\Temporary Projects\Digital Cert Tool\bin\Debug\Digital Cert Tool.exe.config
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\bin\Debug\Digital Cert Tool.exe.config
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\bin\Debug\Digital Cert Tool.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\bin\Debug\Digital Cert Tool.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\bin\Debug\Digital Cert Tool.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital_Cert_Tool.Form1.resources
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital_Cert_Tool.Resources.resources
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital Cert Tool.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital Cert Tool.exe
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital Cert Tool.xml
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital Cert Tool.pdb
+C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Digital Cert Tool\Digital Cert Tool\obj\Debug\Digital Cert Tool.vbprojResolveAssemblyReference.cache

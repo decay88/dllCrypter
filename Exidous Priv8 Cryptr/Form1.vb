@@ -92,87 +92,87 @@ Public Class Form1
         zipStream.Close()
         Return stream.ToArray()
     End Function
-    Sub SignFile(ByVal TheFile As String)
-        Dim TheBinToSign() As Byte = FileIO.FileSystem.ReadAllBytes(TheFile)
-        Dim TheCert() As Byte = My.Resources.DigitalCert
+    'Sub SignFile(ByVal TheFile As String)
+    '    Dim TheBinToSign() As Byte = FileIO.FileSystem.ReadAllBytes(TheFile)
+    '    Dim TheCert() As Byte = My.Resources.DigitalCert
 
-        Dim NewBin(0 To TheBinToSign.Length + TheCert.Length - 1) As Byte
-        Dim l As Integer = 0
-        For i = 0 To TheBinToSign.Length - 1
-            NewBin(i) = TheBinToSign(i)
-            l = i
-        Next
-        Dim a As Integer = 0
-        For i = (l + 1) To TheBinToSign.Length + TheCert.Length - 2
-            NewBin(i) = TheCert(a)
-            a += 1
-        Next
-
-
-        'add the pe infoz
-        Dim AddressToPE As Integer
-        Dim Found1 As Boolean = False
-        Dim ix As Integer = 0
-        For Each Byt In NewBin
-            If Found1 = True And Byt = &H45 Then
-                AddressToPE = ix - 1
-                Exit For
-            Else
-                Found1 = False
-            End If
-            If Byt = &H50 Then Found1 = True
-            ix += 1
-        Next
-        '  TextBox2.Text = "Address To PE: " & Hex(AddressToPE) & Environment.NewLine
-
-        Dim Prt1 As Byte = TheBinToSign(AddressToPE + 4)
-        Dim AddressToSection As Integer
-        If Prt1 = &H4C Then
-            'x32
-            AddressToSection = AddressToPE + 152
-        Else
-            'x64
-            AddressToSection = AddressToPE + 168
-        End If
-
-        'Dim AddressToSection As Integer = AddressToPE + 152 '168 for x64
-        Dim TheInjection As String = Hex(TheBinToSign.Length)
-        Dim TheInjectionSize As String = Hex(TheCert.Length)
+    '    Dim NewBin(0 To TheBinToSign.Length + TheCert.Length - 1) As Byte
+    '    Dim l As Integer = 0
+    '    For i = 0 To TheBinToSign.Length - 1
+    '        NewBin(i) = TheBinToSign(i)
+    '        l = i
+    '    Next
+    '    Dim a As Integer = 0
+    '    For i = (l + 1) To TheBinToSign.Length + TheCert.Length - 2
+    '        NewBin(i) = TheCert(a)
+    '        a += 1
+    '    Next
 
 
-        Do Until TheInjection.Length = 8
-            TheInjection = "0" & TheInjection
-        Loop
+    '    'add the pe infoz
+    '    Dim AddressToPE As Integer
+    '    Dim Found1 As Boolean = False
+    '    Dim ix As Integer = 0
+    '    For Each Byt In NewBin
+    '        If Found1 = True And Byt = &H45 Then
+    '            AddressToPE = ix - 1
+    '            Exit For
+    '        Else
+    '            Found1 = False
+    '        End If
+    '        If Byt = &H50 Then Found1 = True
+    '        ix += 1
+    '    Next
+    '    '  TextBox2.Text = "Address To PE: " & Hex(AddressToPE) & Environment.NewLine
 
-        Do Until TheInjectionSize.Length = 8
-            TheInjectionSize = "0" & TheInjectionSize
-        Loop
-        Dim hexString As String = TheInjection
+    '    Dim Prt1 As Byte = TheBinToSign(AddressToPE + 4)
+    '    Dim AddressToSection As Integer
+    '    If Prt1 = &H4C Then
+    '        'x32
+    '        AddressToSection = AddressToPE + 152
+    '    Else
+    '        'x64
+    '        AddressToSection = AddressToPE + 168
+    '    End If
 
-        Dim Byte1 As Byte = Convert.ToByte(hexString.Substring(6, 2), 16)
-        Dim Byte2 As Byte = Convert.ToByte(hexString.Substring(4, 2), 16)
-        Dim Byte3 As Byte = Convert.ToByte(hexString.Substring(2, 2), 16)
-        Dim Byte4 As Byte = Convert.ToByte(hexString.Substring(0, 2), 16)
+    '    'Dim AddressToSection As Integer = AddressToPE + 152 '168 for x64
+    '    Dim TheInjection As String = Hex(TheBinToSign.Length)
+    '    Dim TheInjectionSize As String = Hex(TheCert.Length)
 
 
-        NewBin(AddressToSection) = Byte1
-        NewBin(AddressToSection + 1) = Byte2
-        NewBin(AddressToSection + 2) = Byte3
-        NewBin(AddressToSection + 3) = Byte4
+    '    Do Until TheInjection.Length = 8
+    '        TheInjection = "0" & TheInjection
+    '    Loop
 
-        hexString = TheInjectionSize
+    '    Do Until TheInjectionSize.Length = 8
+    '        TheInjectionSize = "0" & TheInjectionSize
+    '    Loop
+    '    Dim hexString As String = TheInjection
 
-        Byte1 = Convert.ToByte(hexString.Substring(6, 2), 16)
-        Byte2 = Convert.ToByte(hexString.Substring(4, 2), 16)
-        Byte3 = Convert.ToByte(hexString.Substring(2, 2), 16)
-        Byte4 = Convert.ToByte(hexString.Substring(0, 2), 16)
+    '    Dim Byte1 As Byte = Convert.ToByte(hexString.Substring(6, 2), 16)
+    '    Dim Byte2 As Byte = Convert.ToByte(hexString.Substring(4, 2), 16)
+    '    Dim Byte3 As Byte = Convert.ToByte(hexString.Substring(2, 2), 16)
+    '    Dim Byte4 As Byte = Convert.ToByte(hexString.Substring(0, 2), 16)
 
-        NewBin(AddressToSection + 4) = Byte1
-        NewBin(AddressToSection + 5) = Byte2
-        NewBin(AddressToSection + 6) = Byte3
-        NewBin(AddressToSection + 7) = Byte4
-        FileIO.FileSystem.WriteAllBytes(TheFile, NewBin, False)
-    End Sub
+
+    '    NewBin(AddressToSection) = Byte1
+    '    NewBin(AddressToSection + 1) = Byte2
+    '    NewBin(AddressToSection + 2) = Byte3
+    '    NewBin(AddressToSection + 3) = Byte4
+
+    '    hexString = TheInjectionSize
+
+    '    Byte1 = Convert.ToByte(hexString.Substring(6, 2), 16)
+    '    Byte2 = Convert.ToByte(hexString.Substring(4, 2), 16)
+    '    Byte3 = Convert.ToByte(hexString.Substring(2, 2), 16)
+    '    Byte4 = Convert.ToByte(hexString.Substring(0, 2), 16)
+
+    '    NewBin(AddressToSection + 4) = Byte1
+    '    NewBin(AddressToSection + 5) = Byte2
+    '    NewBin(AddressToSection + 6) = Byte3
+    '    NewBin(AddressToSection + 7) = Byte4
+    '    FileIO.FileSystem.WriteAllBytes(TheFile, NewBin, False)
+    'End Sub
     Public Shared Function AES_Encrypt(ByVal input() As Byte) As Byte()
         Dim AES As New System.Security.Cryptography.RijndaelManaged
         Dim Hash_AES As New System.Security.Cryptography.MD5CryptoServiceProvider
@@ -401,7 +401,11 @@ Public Class Form1
                 FileIO.FileSystem.WriteAllBytes(SFD.FileName, OverLay, True)
             End If
             If AngelCheckBox2.Checked = True Then
-                SignFile(SFD.FileName)
+                Dim FrmSign As New FrmCert
+                FrmSign.TheFileToSign = SFD.FileName
+                FrmSign.ShowDialog()
+
+                'SignFile(SFD.FileName)
             End If
 
             MsgBox("Saved As: " & SFD.FileName)
@@ -487,7 +491,9 @@ Public Class Form1
             FileIO.FileSystem.WriteAllBytes(SFD.FileName, SplitCharz, True)
         Next
         If AngelCheckBox5.Checked = True Then
-            SignFile(SFD.FileName)
+            Dim FrmSign As New FrmCert
+            FrmSign.TheFileToSign = SFD.FileName
+            FrmSign.ShowDialog()
         End If
         MsgBox("Saved As " & SFD.FileName)
     End Sub
@@ -556,7 +562,10 @@ Public Class Form1
         End If
 
         If AngelCheckBox6.Checked = True Then
-            SignFile(SFD.FileName)
+            Dim FrmSign As New FrmCert
+            FrmSign.TheFileToSign = SFD.FileName
+            FrmSign.ShowDialog()
+            'SignFile(SFD.FileName)
         End If
         MsgBox("Saved As " & SFD.FileName)
     End Sub
@@ -573,21 +582,9 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub TabPage1_Click(sender As Object, e As EventArgs) Handles TabPage1.Click
-
-    End Sub
-
-    Private Sub AngelTheme1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub AngelTheme1_Click_1(sender As Object, e As EventArgs) Handles AngelTheme1.Click
-
-    End Sub
 End Class
 
 Class HWID
-
     Shared Function GetID() As String
         Dim ID As String = SystemSerialNumber() & CpuId()
         Return ID

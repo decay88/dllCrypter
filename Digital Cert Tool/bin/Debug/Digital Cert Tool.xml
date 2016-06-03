@@ -1,0 +1,26 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Digital Cert Tool
+</name>
+</assembly>
+<members>
+<member name="T:Digital_Cert_Tool.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Digital_Cert_Tool.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Digital_Cert_Tool.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+</members>
+</doc>

