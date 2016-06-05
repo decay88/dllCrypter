@@ -22,12 +22,11 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Image.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Image.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Image.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\anti.dll
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\dll.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\RunPE.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\anti.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\anti.xml
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\dll.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\dll.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\RunPE.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\Image.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\Image.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\RunPe2.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\RunPe2.pdb

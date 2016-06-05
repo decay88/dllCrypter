@@ -69,6 +69,8 @@
                 S = "0" & S
             End If
             RetStr &= S
+
+            Application.DoEvents()
         Next
         Return RetStr
     End Function

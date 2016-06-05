@@ -43,6 +43,7 @@ Partial Class Form1
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.AngelButton7 = New Exidous_Priv8_Cryptr.AngelButton()
         Me.AngelButton6 = New Exidous_Priv8_Cryptr.AngelButton()
+        Me.AngelCheckBox5 = New Exidous_Priv8_Cryptr.AngelCheckBox()
         Me.AngelCheckBox4 = New Exidous_Priv8_Cryptr.AngelCheckBox()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
@@ -62,7 +63,6 @@ Partial Class Form1
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.AngelCheckBox5 = New Exidous_Priv8_Cryptr.AngelCheckBox()
         Me.AngelTheme1.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
@@ -210,7 +210,7 @@ Partial Class Form1
         '
         'AngelCheckBox2
         '
-        Me.AngelCheckBox2.Checked = True
+        Me.AngelCheckBox2.Checked = False
         Me.AngelCheckBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.AngelCheckBox2.Location = New System.Drawing.Point(247, 55)
         Me.AngelCheckBox2.Name = "AngelCheckBox2"
@@ -298,6 +298,16 @@ Partial Class Form1
         Me.AngelButton6.TabIndex = 13
         Me.AngelButton6.Text = "Add File"
         Me.AngelButton6.TextAlignment = Exidous_Priv8_Cryptr.Alignment.Centre
+        '
+        'AngelCheckBox5
+        '
+        Me.AngelCheckBox5.Checked = False
+        Me.AngelCheckBox5.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.AngelCheckBox5.Location = New System.Drawing.Point(380, 143)
+        Me.AngelCheckBox5.Name = "AngelCheckBox5"
+        Me.AngelCheckBox5.Size = New System.Drawing.Size(126, 18)
+        Me.AngelCheckBox5.TabIndex = 12
+        Me.AngelCheckBox5.Text = "Digital Signature"
         '
         'AngelCheckBox4
         '
@@ -517,16 +527,6 @@ Partial Class Form1
         Me.Label4.Size = New System.Drawing.Size(136, 21)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Coded By: Exidous"
-        '
-        'AngelCheckBox5
-        '
-        Me.AngelCheckBox5.Checked = False
-        Me.AngelCheckBox5.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.AngelCheckBox5.Location = New System.Drawing.Point(380, 143)
-        Me.AngelCheckBox5.Name = "AngelCheckBox5"
-        Me.AngelCheckBox5.Size = New System.Drawing.Size(126, 18)
-        Me.AngelCheckBox5.TabIndex = 12
-        Me.AngelCheckBox5.Text = "Digital Signature"
         '
         'Form1
         '

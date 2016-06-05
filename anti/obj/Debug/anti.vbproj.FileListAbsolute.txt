@@ -1,9 +1,9 @@
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\bin\Debug\anti.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\bin\Debug\anti.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\bin\Debug\anti.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.vbprojResolveAssemblyReference.cache
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.Resources.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.vbproj.GenerateResource.Cache
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\anti\obj\Debug\anti.vbprojResolveAssemblyReference.cache
