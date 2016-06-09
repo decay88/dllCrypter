@@ -1,0 +1,9 @@
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\bin\Debug\Functions.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\bin\Debug\Functions.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\bin\Debug\Functions.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.pdb

@@ -8,11 +8,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Image Viewer")>
-<Assembly: AssemblyDescription("Image Viewer")>
-<Assembly: AssemblyCompany("ImageTrix")>
-<Assembly: AssemblyProduct("Image Viewer")>
-<Assembly: AssemblyCopyright("Copyright © ImageTrix  2016")>
+<Assembly: AssemblyTitle("Hello World")>
+<Assembly: AssemblyDescription("testing")>
+<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyProduct("Hello World")>
+<Assembly: AssemblyCopyright("Copyright © 2016")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>

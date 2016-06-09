@@ -1,0 +1,16 @@
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\FallingBlocks.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\FallingBlocks.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\FallingBlocks.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\anti.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\Award.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\anti.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\anti.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\bin\Debug\Award.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.vbprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.Board.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.mainForm.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\FallingBlocks\obj\Debug\FallingBlocks.pdb

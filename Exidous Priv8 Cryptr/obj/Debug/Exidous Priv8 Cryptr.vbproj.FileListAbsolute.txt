@@ -15,7 +15,6 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous 
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.xml
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.vbprojResolveAssemblyReference.cache
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.Form1.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.FrmClone.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.frmTOS.resources

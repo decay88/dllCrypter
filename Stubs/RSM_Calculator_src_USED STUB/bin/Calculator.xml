@@ -22,10 +22,5 @@ Calculator
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="P:Calculator.My.Resources.Resources.invoke">
-<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
 </members>
 </doc>

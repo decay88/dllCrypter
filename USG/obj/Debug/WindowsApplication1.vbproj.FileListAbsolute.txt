@@ -1,0 +1,10 @@
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\bin\Debug\USG.exe.config
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\bin\Debug\USG.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\bin\Debug\USG.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\bin\Debug\USG.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\obj\Debug\USG.Form1.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\obj\Debug\USG.Resources.resources
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\obj\Debug\USG.exe
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\obj\Debug\USG.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\WindowsApplication1\obj\Debug\USG.pdb

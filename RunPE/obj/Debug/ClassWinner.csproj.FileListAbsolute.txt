@@ -1,0 +1,5 @@
+C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\bin\Debug\Award.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\bin\Debug\Award.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\obj\Debug\ClassWinner.csprojResolveAssemblyReference.cache
+C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\obj\Debug\Award.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\RunPE\obj\Debug\Award.pdb

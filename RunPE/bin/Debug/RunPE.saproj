@@ -1,5 +1,5 @@
 <SmartAssemblyProject ProjectId="{6568e4f0-680d-4b01-8fd9-0ecd871e2404}" Version="2.0">
-    <MainAssemblyFileName>.\RunPE.dll</MainAssemblyFileName>
+    <MainAssemblyFileName>.\Award.dll</MainAssemblyFileName>
     <Configuration Name="Release">
         <Options>
             <ExceptionReporting Template="res:{SmartExceptions}.1033.dll" />
@@ -12,7 +12,7 @@
             <Debugging />
         </Options>
         <ApplicationName />
-        <Destination DestinationFileName=".\SA\RunPE.dll" />
+        <Destination DestinationFileName=".\SA\Award.dll" />
         <Assemblies>
             <Assembly AssemblyName="RunPE, Culture=neutral, PublicKeyToken=null">
                 <Merging>
@@ -48,6 +48,17 @@
             </Assembly>
             <Assembly AssemblyName="SmartAssembly.HouseOfCards, Culture=neutral, PublicKeyToken=7f465a1c156d4d57">
                 <Merging />
+            </Assembly>
+            <Assembly AssemblyName="Award, Culture=neutral, PublicKeyToken=null">
+                <Merging>
+                    <ResourcesCompression />
+                    <MemberRefsProxy />
+                    <StringsEncoding />
+                    <Pruning />
+                    <Obfuscation />
+                    <ControlFlow />
+                </Merging>
+                <Embedding />
             </Assembly>
         </Assemblies>
     </Configuration>
