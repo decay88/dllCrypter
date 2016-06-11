@@ -16,11 +16,8 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\Stub.vbprojResolveAssemb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\HelloWorld.Form1.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\HelloWorld.Resources.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\Stub.vbproj.GenerateResource.Cache
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\HelloWorld.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\HelloWorld.exe.config
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\HelloWorld.exe
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\HelloWorld.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\HelloWorld.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Functions.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\anti.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Award.dll
@@ -30,4 +27,6 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\anti.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\anti.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Award.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\HelloWorld.exe
-C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\HelloWorld.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\Stub\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Stub\obj\Debug\Stub.vbproj.ResolveComReference.cache

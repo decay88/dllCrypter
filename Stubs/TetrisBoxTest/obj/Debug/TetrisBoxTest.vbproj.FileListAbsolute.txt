@@ -30,8 +30,6 @@ C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\bin\Debug\Award.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\TetrisBoxTest\bin\Debug\Award.pdb
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\TetrisBoxTest.exe.config
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\TetrisBoxTest.exe
-C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\TetrisBoxTest.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\TetrisBoxTest.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\anti.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\Award.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\anti.pdb
@@ -42,5 +40,7 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\obj\Debug\TetrisBox
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\obj\Debug\TetrisBoxTest.Resources.resources
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\obj\Debug\TetrisBoxTest.vbproj.GenerateResource.Cache
 C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\obj\Debug\TetrisBoxTest.exe
-C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\obj\Debug\TetrisBoxTest.xml
-C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\obj\Debug\TetrisBoxTest.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\Functions.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\Functions.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\Functions.xml
+C:\Users\Exidous\Source\Repos\dllCrypter\Stubs\TetrisBoxTest\bin\Debug\Interop.IWshRuntimeLibrary.dll

@@ -2,21 +2,21 @@
 <doc>
 <assembly>
 <name>
-Image
+Functions
 </name>
 </assembly>
 <members>
-<member name="T:Image.My.Resources.Resources">
+<member name="T:Functions.My.Resources.Resources">
 <summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
 </member>
-<member name="P:Image.My.Resources.Resources.ResourceManager">
+<member name="P:Functions.My.Resources.Resources.ResourceManager">
 <summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
 </member>
-<member name="P:Image.My.Resources.Resources.Culture">
+<member name="P:Functions.My.Resources.Resources.Culture">
 <summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.

@@ -2,9 +2,9 @@
     Dim UsedStrings() As String = {}
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim Template As String = My.Resources.String1
-        Dim Usage As String = "%SHIT0%.%SHIT16%()" & Environment.NewLine & "%SHIT0%.%SHIT17%()"
-        For i = 0 To 19
-            If i = 0 Or i = 16 Or i = 17 Then
+        Dim Usage As String = " %SHIT0%.%SHIT1%()"
+        For i = 0 To 25
+            If i = 0 Or i = 1 Then
                 Dim Name As String = GenerateString()
                 Template = Replace(Template, "%SHIT" & i & "%", Name)
                 Usage = Replace(Usage, "%SHIT" & i & "%", Name)
@@ -14,7 +14,7 @@
             End If
 
         Next
-        Dim X() As String = Split(Template, Environment.NewLine)
+        Dim X() As String = Split(Replace(Replace(Template, vbLf, Environment.NewLine), Environment.NewLine & Environment.NewLine, Environment.NewLine), Environment.NewLine)
         Dim IsInSubOrFunc As Boolean = False
         Dim LineSkip As Integer = 0
         Dim LinesSkipped As Integer = 0
@@ -37,27 +37,34 @@
                 If LinesSkipped = LineSkip Then
                     Dim FuncName As String = GenerateString()
                     Dim rn As New Random
-                    Dim c As Integer = rn.Next(0, 1)
-                    If c = 0 Then
-                        line &= Environment.NewLine & FuncName & "()" & Environment.NewLine
-                        RandomFunctions &= RandomSub(FuncName, IsShared) & Environment.NewLine & Environment.NewLine
 
-                    Else
-                        line &= Environment.NewLine & "Dim " & GenerateString() & " = " & FuncName & "()" & Environment.NewLine
-                        RandomFunctions &= RandomFunction(FuncName, IsShared) & Environment.NewLine & Environment.NewLine
-                    End If
+                    Dim c As Integer = rn.Next(0, 3)
+                    Select Case c
+                        Case 0
+                            line &= Environment.NewLine & FuncName & "()" & Environment.NewLine
+                            RandomFunctions &= RandomSub(FuncName, IsShared) & Environment.NewLine & Environment.NewLine
+
+                        Case 1
+                            line &= Environment.NewLine & "Dim " & GenerateString() & " = " & FuncName & "()" & Environment.NewLine
+                            RandomFunctions &= RandomFunction(FuncName, IsShared) & Environment.NewLine & Environment.NewLine
+
+                        Case 2
+                            line &= RandomDeclaration(FuncName)
+                    End Select
+
                     LinesSkipped = 0
-
-                    LineSkip = rn.Next(0, 4)
+                    System.Threading.Thread.Sleep(50)
+                    LineSkip = rn.Next(0, 1)
                 Else
                     LinesSkipped += 1
                 End If
             End If
             RebuiltStr &= line & Environment.NewLine
         Next
-        TextBox3.Text = RebuiltStr
+        TextBox3.Text = Replace(RebuiltStr & Environment.NewLine & My.Resources.String2, Environment.NewLine & Environment.NewLine, Environment.NewLine)
         TextBox2.Text = Usage
     End Sub
+
     Private Function GenerateString()
         Dim Rn As New Random
 Retry:
@@ -75,6 +82,43 @@ Retry:
         UsedStrings(UsedStrings.Count - 1) = RndStr
         Return RndStr
     End Function
+    Function RandomDeclaration(ByVal FuncName As String)
+        Dim Rn As New Random
+        Dim Z As Integer = Rn.Next(0, 5)
+
+        Dim FuncLines As String = ""
+        For i As Integer = 0 To Z
+            Dim CurrentLineText As String = ""
+            Dim XY As Integer = Rn.Next(0, 8)
+            Select Case XY
+                Case 0
+                    CurrentLineText = "Dim " & GenerateString() & " As String = " & """" & GenerateString() & """"
+                Case 1
+                    CurrentLineText = "Dim " & GenerateString() & " As Long = " & Long.Parse(Rn.Next(0, 1000))
+                Case 2
+                    CurrentLineText = "Dim " & GenerateString() & " As Integer = " & Integer.Parse(Rn.Next(0, 1000))
+                Case 3
+                    CurrentLineText = "Dim " & GenerateString() & " As Object = {}"
+                Case 4
+                    CurrentLineText = "Dim " & GenerateString() & " As Byte() = {}"
+                Case 5
+                    Dim TheName As String = GenerateString()
+
+                    CurrentLineText = "Dim " & TheName & " As Boolean = False" & Environment.NewLine _
+                    & "If " & TheName & " = True Then" & Environment.NewLine & "Debug.Print(" & """" & GenerateString() & """" & ")" & Environment.NewLine & "End If"
+                Case 6
+                    Dim TheName As String = GenerateString()
+                    CurrentLineText = "Dim " & TheName & " As Boolean = True" & Environment.NewLine _
+                    & "If " & TheName & " = False Then" & Environment.NewLine & "Debug.Print(" & """" & GenerateString() & """" & ")" & Environment.NewLine & "End If"
+                Case 7
+                    Dim Name As String = GenerateString()
+                    CurrentLineText = "Dim " & Name & " As integer = 0" & Environment.NewLine & "For " & GenerateString() & " = 0 to 100" & Environment.NewLine _
+                        & Name & " += 1" & Environment.NewLine & "Next"
+            End Select
+            FuncLines &= CurrentLineText & Environment.NewLine
+        Next
+        Return FuncLines
+    End Function
 
     Function RandomFunction(ByVal FuncName As String, ByVal IsShared As Boolean)
         Dim Rn As New Random
@@ -88,7 +132,7 @@ Retry:
         Dim FuncLines As String = Function_Type & FuncName & "()" & Environment.NewLine
         For i As Integer = 0 To Z
             Dim CurrentLineText As String = ""
-            Dim XY As Integer = Rn.Next(0, 4)
+            Dim XY As Integer = Rn.Next(0, 8)
             Select Case XY
                 Case 0
                     CurrentLineText = "Dim " & GenerateString() & " As String = " & """" & GenerateString() & """"
@@ -98,6 +142,20 @@ Retry:
                     CurrentLineText = "Dim " & GenerateString() & " As Integer = " & Integer.Parse(Rn.Next(0, 1000))
                 Case 3
                     CurrentLineText = "Dim " & GenerateString() & " As Object = {}"
+                Case 4
+                    CurrentLineText = "Dim " & GenerateString() & " As Byte() = {}"
+                Case 5
+                    Dim TheName As String = GenerateString()
+                    CurrentLineText = "Dim " & TheName & " As Boolean = False" & Environment.NewLine _
+                    & "If " & TheName & " = True Then" & Environment.NewLine & "Msgbox(" & """" & GenerateString() & """" & ")" & Environment.NewLine & "End If"
+                Case 6
+                    Dim TheName As String = GenerateString()
+                    CurrentLineText = "Dim " & TheName & " As Boolean = True" & Environment.NewLine _
+                    & "If " & TheName & " = False Then" & Environment.NewLine & "Msgbox(" & """" & GenerateString() & """" & ")" & Environment.NewLine & "End If"
+                Case 7
+                    Dim Name As String = GenerateString()
+                    CurrentLineText = "Dim " & Name & " As integer = 0" & Environment.NewLine & "For " & GenerateString() & " = 0 to 100" & Environment.NewLine _
+                        & Name & " += 1" & Environment.NewLine & "Next"
             End Select
             FuncLines &= CurrentLineText & Environment.NewLine
         Next
@@ -143,5 +201,9 @@ Retry:
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Clipboard.Clear()
         Clipboard.SetText(TextBox3.Text)
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+        'C:\windows\Microsoft.NET\Framework\v2.0.50727\vbc.exe yourfile.vb
     End Sub
 End Class

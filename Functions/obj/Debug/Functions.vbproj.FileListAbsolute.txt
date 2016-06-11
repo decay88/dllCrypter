@@ -7,3 +7,6 @@ C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.vbproj.Ge
 C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.dll
 C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.xml
 C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.pdb
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\bin\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\Exidous\Source\Repos\dllCrypter\Functions\obj\Debug\Functions.vbproj.ResolveComReference.cache
